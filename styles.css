@@ -1,0 +1,24 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.custom-container {
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    margin: 20px;
+    max-width: 100%; /* Added to make containers responsive */
+    box-sizing: border-box; /* Added to include padding in the width calculation */
+}
+
+h2 {
+    color: #333333;
+}
+
+p {
+    color: #666666;
+}
