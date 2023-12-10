@@ -6,27 +6,39 @@ body {
 .hero-container {
   background-color: #ecf0f1;
   color: #333;
-  text-align: ledt;
+  text-align: center;
   padding: 50px;
 }
 
 .container-row {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
 }
 
 #container1, #container2, #container3 {
-  background-color: #ecf0f1;
-  text-align: left;
-  margin: 10px;
-  flex: 1;
+  text-align: center;
+  padding: 20px;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#container1 {
+  background-color: #3498db;
+}
+
+#container2 {
+  background-color: #2ecc71;
+}
+
+#container3 {
+  background-color: #e74c3c;
 }
 
 /* Adjustments for screens under 800px */
 @media screen and (max-width: 800px) {
   .container-row {
-    flex-direction: column;
-    align-items: center; /* Optional: Center containers when stacked */
+    grid-template-columns: 1fr;
   }
 }
