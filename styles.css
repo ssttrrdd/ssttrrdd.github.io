@@ -6,7 +6,7 @@ body {
 .hero-container {
   background-color: #ecf0f1;
   color: #333;
-  text-align: center;
+  text-align: ledt;
   padding: 50px;
 }
 
@@ -17,7 +17,8 @@ body {
 }
 
 #container1, #container2, #container3 {
-  text-align: center;
+  background-color: #ecf0f1;
+  text-align: left;
   margin: 10px;
   flex: 1;
 }
