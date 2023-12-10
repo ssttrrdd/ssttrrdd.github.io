@@ -6,9 +6,8 @@ body {
 .hero-container {
   background-color: #3498db;
   color: #fff;
-  text-align: left;
-  padding: 10px;
-  height: 20vh;
+  text-align: center;
+  padding: 50px;
 }
 
 .flex-container {
@@ -18,19 +17,26 @@ body {
 }
 
 .flex-item {
-  flex: 1;
-  margin: 10px;
-  padding: 10px;
   text-align: center;
-  background-color: #2ecc71;
+  padding: 20px;
   color: #fff;
 }
 
-@media screen and (max-width: 800px) {
-  .flex-container {
-    flex-direction: column;
-  body {
-    font-size: 8px;
-    }
+/* Adjustments for screens over 800px */
+@media screen and (min-width: 801px) {
+  .flex-item {
+    font-size: 14px; /* Adjust font size */
+  }
+
+  .flex-item:nth-child(1) {
+    flex: 0 0 15%; /* Container 1 takes up 15% */
+  }
+
+  .flex-item:nth-child(2) {
+    flex: 0 0 35%; /* Container 2 takes up 35% */
+  }
+
+  .flex-item:nth-child(3) {
+    flex: 0 0 50%; /* Container 3 takes up 50% */
   }
 }
