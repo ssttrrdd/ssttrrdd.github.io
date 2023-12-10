@@ -26,5 +26,6 @@ body {
 @media screen and (max-width: 800px) {
   .container-row {
     flex-direction: column;
+    align-items: center; /* Optional: Center containers when stacked */
   }
 }
