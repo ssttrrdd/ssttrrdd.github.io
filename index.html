@@ -13,7 +13,37 @@
   </header>
 
   <main class="grid-container">
-    <section class="grid-item">1</section>
+    <section class="grid-item"><ul id="techSpecList">
+    <!-- Tech Spec Posts will be added here dynamically -->
+  </ul>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const techSpecList = document.getElementById("techSpecList");
+
+      // Tech Spec Posts data (replace this with your actual data)
+      const techSpecPosts = [
+        "Tech Spec Post 1",
+        "Tech Spec Post 2",
+        "Tech Spec Post 3",
+        "Tech Spec Post 4",
+        "Tech Spec Post 5",
+        "Tech Spec Post 6",
+        "Tech Spec Post 7",
+        "Tech Spec Post 8",
+        "Tech Spec Post 9",
+        "Tech Spec Post 10",
+      ];
+
+      // Loop through the array and create list items
+      techSpecPosts.forEach(post => {
+        const listItem = document.createElement("li");
+        listItem.textContent = post;
+        techSpecList.appendChild(listItem);
+      });
+    });
+  </script>
+    </section>
     <section class="grid-item"><p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer aliquam quam eu tortor ultricies, ac ultricies tortor tincidunt. Nullam ut gravida libero, nec posuere libero. Maecenas sit amet dapibus mauris. In vel quam vel odio laoreet ullamcorper vel vel tellus. Fusce tincidunt elit sit amet arcu accumsan, id dapibus justo ullamcorper. Morbi vestibulum massa sit amet velit sollicitudin congue. Ut tincidunt, augue ut tempor semper, quam erat cursus leo, id varius urna mauris vitae justo. Vivamus in mauris id metus interdum dignissim. Suspendisse potenti.
 
