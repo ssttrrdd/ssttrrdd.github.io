@@ -29,8 +29,8 @@ body {
 @media screen and (max-width: 800px) {
   .flex-container {
     flex-direction: column;
-  }
   body {
     font-size: 8px;
+    }
   }
 }
