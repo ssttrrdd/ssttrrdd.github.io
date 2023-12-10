@@ -25,3 +25,9 @@ header {
   border-radius: 2px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
+/* Media query for screens under 800px */
+@media screen and (max-width: 800px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* Change to a single column layout */
+  }
+}
