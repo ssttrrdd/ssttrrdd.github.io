@@ -4,53 +4,27 @@ body {
 }
 
 .hero-container {
-  background-color: #3498db;
-  color: #fff;
+  background-color: #ecf0f1;
+  color: #333;
   text-align: center;
   padding: 50px;
 }
 
-.flex-container {
+.container-row {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
-.flex-item1 {
-  text-align: left;
-  padding: 20px;
-  color: #fff;
-  flex: 1;
-}
-.flex-item2 {
-  text-align: left;
-  padding: 20px;
-  color: #fff;
-  flex: 1;
-}
-.flex-item3 {
-  text-align: left;
-  padding: 20px;
-  color: #fff;
+#container1, #container2, #container3 {
+  text-align: center;
+  margin: 10px;
   flex: 1;
 }
 
-/* Adjustments for screens over 800px */
-@media screen and (min-width: 801px) {
-  .flex-item {
-    font-size: 6px; /* Adjust font size */
-    flex: 0 0 auto; /* Reset flex property */
-  }
-
-  .flex-item1 {
-    flex-basis: 10%; /* Container 1 takes up 15% */
-  }
-
-  .flex-item2 {
-    flex-basis: 30%; /* Container 2 takes up 35% */
-  }
-
-  .flex-item3 {
-    flex-basis: 54%; /* Container 3 takes up 50% */
+/* Adjustments for screens under 800px */
+@media screen and (max-width: 800px) {
+  .container-row {
+    flex-direction: column;
   }
 }
