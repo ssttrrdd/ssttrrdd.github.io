@@ -26,19 +26,19 @@ body {
 /* Adjustments for screens over 800px */
 @media screen and (min-width: 801px) {
   .flex-item {
-    font-size: 14px; /* Adjust font size */
+    font-size: 6px; /* Adjust font size */
     flex: 0 0 auto; /* Reset flex property */
   }
 
-  .flex-item:nth-child(1) {
-    flex-basis: 15%; /* Container 1 takes up 15% */
+  .flex-item1 {
+    flex-basis: 10%; /* Container 1 takes up 15% */
   }
 
-  .flex-item:nth-child(2) {
-    flex-basis: 35%; /* Container 2 takes up 35% */
+  .flex-item2 {
+    flex-basis: 30%; /* Container 2 takes up 35% */
   }
 
-  .flex-item:nth-child(3) {
-    flex-basis: 50%; /* Container 3 takes up 50% */
+  .flex-item3 {
+    flex-basis: 54%; /* Container 3 takes up 50% */
   }
 }
