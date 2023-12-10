@@ -6,9 +6,9 @@ body {
 .hero-container {
   background-color: #3498db;
   color: #fff;
-  text-align: center;
+  text-align: left;
   padding: 10px;
-  height: 10vh;
+  height: 20vh;
 }
 
 .flex-container {
@@ -29,5 +29,8 @@ body {
 @media screen and (max-width: 800px) {
   .flex-container {
     flex-direction: column;
+  }
+  body {
+    font-size: 8px;
   }
 }
