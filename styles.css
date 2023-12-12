@@ -64,7 +64,7 @@ input, textarea {
     }
 
 /* Media query for screens under 1024px wide */
-@media (max-width: 1024px) {
+@media (max-width: 850px) {
     .parent {
         grid-template-columns: 1fr; /* Set to one column */
     }
