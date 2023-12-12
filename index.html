@@ -1,63 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Responsive Grid Layout Example</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Grid prototype</title>
 </head>
 <body>
 
-  <header>
-    <h1>X33 special model</h1>
-  </header>
-
-  <main class="grid-container">
-    <section class="grid-item"><ul id="techSpecList">
-    <!-- Tech Spec Posts will be added here dynamically -->
-  </ul>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const techSpecList = document.getElementById("techSpecList");
-
-      // Tech Spec Posts data (replace this with your actual data)
-      const techSpecPosts = [
-        "Tech Spec Post 1",
-        "Tech Spec Post 2",
-        "Tech Spec Post 3",
-        "Tech Spec Post 4",
-        "Tech Spec Post 5",
-        "Tech Spec Post 6",
-        "Tech Spec Post 7",
-        "Tech Spec Post 8",
-        "Tech Spec Post 9",
-        "Tech Spec Post 10",
-      ];
-
-      // Loop through the array and create list items
-      techSpecPosts.forEach(post => {
-        const listItem = document.createElement("li");
-        listItem.textContent = post;
-        techSpecList.appendChild(listItem);
-      });
-    });
-  </script>
-    </section>
-    <section class="grid-item"><p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer aliquam quam eu tortor ultricies, ac ultricies tortor tincidunt. Nullam ut gravida libero, nec posuere libero. Maecenas sit amet dapibus mauris. In vel quam vel odio laoreet ullamcorper vel vel tellus. Fusce tincidunt elit sit amet arcu accumsan, id dapibus justo ullamcorper. Morbi vestibulum massa sit amet velit sollicitudin congue. Ut tincidunt, augue ut tempor semper, quam erat cursus leo, id varius urna mauris vitae justo. Vivamus in mauris id metus interdum dignissim. Suspendisse potenti.
-
-    Sed non metus ac purus imperdiet luctus. Ut quis sem et odio efficitur euismod. Aenean ac purus eu libero facilisis malesuada. Vestibulum quis sodales odio. Vivamus euismod tincidunt mi vel facilisis. Vestibulum et nisi nec justo tincidunt auctor. Proin in justo et tellus bibendum laoreet. In tincidunt orci ac elit vulputate, in congue justo pharetra.
-
-    // ... Repeat Lorem Ipsum content until you reach around 200 words ...
-
-  </p>
-</section>
-    <section class="grid-item">3</section>
-    <section class="grid-item">4</section>
-    <section class="grid-item">5</section>
-    <section class="grid-item">6</section>
-  </main>
+    <div class="parent">
+        <div class="div1">Special display name</div>
+        <div class="div2">Image and info grid</div>
+        <div class="div3">Classification grid</div>
+        <div class="div4">Downloads grid</div>
+        <div class="div5">Info grid</div>
+        <div class="div6">Picture grid</div>
+        <div class="div7">© 2077</div>
+    </div>
 
 </body>
 </html>
