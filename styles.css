@@ -1,48 +1,23 @@
 body {
-  font-family: 'Noto Sans', sans-serif; /* You can adjust the font-family based on your preferences */
-}
-
-body {
-  background-color: #1c1b22; /* Adjust the background color */
-  color: #ffffff; /* Adjust the text color */
-}
-a {
-  color: #4a90e2; /* Adjust the link color */
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-h1, h2, h3 {
-  color: #ffffff; /* Adjust heading text color */
-}
-p {
-  line-height: 1.6;
-}
-button {
-  background-color: #4a90e2; /* Adjust button background color */
-  color: #ffffff; /* Adjust button text color */
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-}
-button:hover {
-  background-color: #3463a0; /* Adjust button background color on hover */
-}
-input, textarea {
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #999999; /* Adjust input border color */
-  background-color: #444444; /* Adjust input background color */
-  color: #ffffff; /* Adjust input text color */
+  background-color: #fff;
+  font-family: Arial;
+  /*
+Adjust the background color
+röd d60e47
+vit fff
+svart 000
+grå BFB7B0
+blå 0B5778
+grön 49908C
+gul FECB2F */
 }
 
 .parent {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
+    grid-template-rows: min-content repeat(4, 1fr);
+    grid-column-gap: 4px;
+    grid-row-gap: 4px;
     }
 
 .div1 { grid-area: 1 / 1 / 2 / 11; }
@@ -53,18 +28,22 @@ input, textarea {
 .div6 { grid-area: 2 / 7 / 5 / 11; }
 .div7 { grid-area: 5 / 1 / 6 / 11; }
 
-
 /* Additional styling for clarity, you can modify as needed */
 .parent > div {
-    background-color: #2b2a33;
-    border: 1px solid #000;
+    background-color: #fff;
+    border: 1px solid #d60e47;
+    border-left: 4px solid;
     padding: 6px;
     text-align: left;
-    border-radius: 4px;
+    border-left-color: #d60e47;
     }
+.div7 {
+    grid-area: 5 / 1 / 6 / 11;
+    height: min-content; /* Set height to min-content */
+}
 
 /* Media query for screens under 1024px wide */
-@media (max-width: 850px) {
+@media (max-width: 1024px) {
     .parent {
         grid-template-columns: 1fr; /* Set to one column */
     }
