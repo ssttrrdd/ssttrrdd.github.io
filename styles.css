@@ -42,8 +42,8 @@ gul FECB2F */
     height: min-content; /* Set height to min-content */
 }
 
-/* Media query for screens under 1024px wide */
-@media (max-width: 1024px) {
+/* Media query for screens under 900px wide */
+@media (max-width: 900px) {
     .parent {
         grid-template-columns: 1fr; /* Set to one column */
     }
