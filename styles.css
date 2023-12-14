@@ -16,8 +16,8 @@ gul FECB2F */
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: min-content repeat(4, 1fr);
-    grid-column-gap: 4px;
-    grid-row-gap: 4px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
     }
 
 .div1 { grid-area: 1 / 1 / 2 / 11; }
@@ -31,7 +31,7 @@ gul FECB2F */
 /* Additional styling for clarity, you can modify as needed */
 .parent > div {
     background-color: #fff;
-    border: 1px solid #000;
+    border: none;
     border-left: 4px solid;
     padding: 6px;
     text-align: left;
