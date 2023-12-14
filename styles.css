@@ -31,11 +31,11 @@ gul FECB2F */
 /* Additional styling for clarity, you can modify as needed */
 .parent > div {
     background-color: #fff;
-    border: 1px solid #d60e47;
+    border: 1px solid #000;
     border-left: 4px solid;
     padding: 6px;
     text-align: left;
-    border-left-color: #d60e47;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
     }
 .div7 {
     grid-area: 5 / 1 / 6 / 11;
