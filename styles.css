@@ -51,10 +51,10 @@ gul FECB2F */
 /* Media query for screens under 1000px wide (samma som sr.se) */
 @media (max-width: 1000px) {
     .parent {
-        grid-template-columns: 1fr; /* Set to one column */
+        grid-template-columns: auto; /* Set to one column */
     }
 
     .div1, .div2, .div3, .div4, .div5, .div6, .div7 {
-        grid-area: auto; /* Reset grid area */
+        grid-area: column-start; /* Reset grid area */
     }
 }
