@@ -51,7 +51,7 @@ gul FECB2F */
 /* Media query for screens under 1000px wide (samma som sr.se) */
 @media (max-width: 1000px) {
     .parent {
-        grid-template-columns: repeat(3, 1fr); /* Set to one column */
+        grid-template-rows: min-content min-content min-content 1fr 1fr; /* Set to one column */
     }
 
     .div1, .div2, .div3, .div4, .div5, .div6, .div7 {
