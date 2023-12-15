@@ -55,6 +55,6 @@ gul FECB2F */
     }
 
     .div1, .div2, .div3, .div4, .div5, .div6, .div7 {
-        grid-area: column-start; /* Reset grid area */
+        grid-area: auto; /* Reset grid area */
     }
 }
