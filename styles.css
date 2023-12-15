@@ -15,29 +15,44 @@ gul FECB2F */
 .parent {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: min-content repeat(4, 1fr);
+    grid-template-rows: min-content min-content min-content 1fr 1fr;
     grid-column-gap: 10px;
     grid-row-gap: 10px;
-    }
+}
 
-.div1 { grid-area: 1 / 1 / 2 / 11;
+.div1 {
+    grid-area: 1 / 1 / 2 / 11;
     height: min-content;
     color: #d60e47;
-    }
-.div2 { grid-area: 2 / 1 / 3 / 3;
+}
+
+.div2 {
+    grid-area: 2 / 1 / 3 / 3;
     height: min-content;
-    }
-.div3 { grid-area: 3 / 1 / 4 / 3;
+}
+
+.div3 {
+    grid-area: 3 / 1 / 4 / 3;
     height: min-content;
-    }
-.div4 { grid-area: 4 / 1 / 5 / 3;
+}
+
+.div4 {
+    grid-area: 4 / 1 / 5 / 3;
     height: min-content;
-    }
-.div5 { grid-area: 2 / 3 / 5 / 7; }
-.div6 { grid-area: 2 / 7 / 5 / 11; }
-.div7 { grid-area: 5 / 1 / 6 / 11;
+}
+
+.div5 {
+    grid-area: 2 / 3 / 5 / 7;
+}
+
+.div6 {
+    grid-area: 2 / 7 / 5 / 11;
+}
+
+.div7 {
+    grid-area: 5 / 1 / 6 / 11;
     height: min-content;
-    }
+}
 
 /* Additional styling for clarity, you can modify as needed */
 .parent > div {
@@ -46,12 +61,12 @@ gul FECB2F */
     padding: 6px;
     text-align: left;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.20);
-    }
+}
 
 /* Media query for screens under 1000px wide (samma som sr.se) */
 @media (max-width: 1000px) {
     .parent {
-        grid-template-columns: min-content min-content min-content 1fr 1fr; /* Set to one column */
+        grid-template-columns: repeat(3, 1fr); /* Set to one column */
     }
 
     .div1, .div2, .div3, .div4, .div5, .div6, .div7 {
