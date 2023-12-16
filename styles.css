@@ -19,8 +19,6 @@ gul FECB2F */
     grid-column-gap: 10px;
     grid-row-gap: 10px;
 }
-.model {
-    width: 100%;
 .div1 {
     grid-area: 1 / 1 / 2 / 11;
     color: #d60e47;
