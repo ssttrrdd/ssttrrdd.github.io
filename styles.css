@@ -27,7 +27,7 @@ grid-row-gap: 10px;
 
 .model1 {
     width: 100%;
-    border: 2px #000;
+    border: 1px solid #000;
 }
 
 /* Additional styling for clarity, you can modify as needed */
@@ -45,8 +45,6 @@ grid-row-gap: 10px;
     grid-column-gap: 5px;
     grid-row-gap: 5px;
 }
-
-.div1 { grid-area: 1 / 1 / 4 / 4; }
 
 @media (max-width: 800px) {
     .parent {
