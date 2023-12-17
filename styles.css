@@ -71,7 +71,7 @@ gul FECB2F */
 
 .div1 { grid-area: 1 / 1 / 4 / 4; }
 
-@media (max-width: 1000px) {
+@media (max-width: 800px) {
     .parent {
         display: grid;
         grid-template-columns: auto; /* Set to one column with equal width */
