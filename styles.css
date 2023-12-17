@@ -61,6 +61,15 @@ gul FECB2F */
     text-align: left;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
 }
+.parent2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+}
+
+.div1 { grid-area: 1 / 1 / 4 / 4; }
 
 @media (max-width: 1000px) {
     .parent {
