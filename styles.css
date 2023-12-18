@@ -44,7 +44,7 @@ body {
   border: 1px solid #000;
 }
 /* Media query for devices with a maximum width of 800px */
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 390px) {
     .parent > div {
         display: grid;
         grid-template-columns: 1fr;
