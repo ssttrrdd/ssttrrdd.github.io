@@ -15,7 +15,7 @@ body {
 .parent {
 display: grid;
 grid-template-columns: 15% 35% 50%;
-grid-template-rows: 10% repeat(2, 25%) 1fr 11%;
+grid-template-rows: min-content repeat(2, 25%) 1fr min-content;
 grid-column-gap: 4px;
 grid-row-gap: 4px;
 }
