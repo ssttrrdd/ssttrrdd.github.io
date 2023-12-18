@@ -7,15 +7,14 @@ body {
 .parent > div {
   background-color: #fff;
   border: 1px solid #000;
-  padding: 5px;
+  padding: 4px;
   text-align: left;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
 }
 
 /* Set a responsive grid layout */
 .parent {
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 5px;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive columns */
 }
 
