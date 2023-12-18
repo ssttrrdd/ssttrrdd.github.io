@@ -29,7 +29,7 @@ body {
 .div7 { grid-area: 5 / 1 / 6 / 4; }
 
 /* Example media query for adjusting the layout on smaller screens */
-@media only screen and (max-width:  1366px) {
+@media only screen and (max-width:  500px) {
   .parent {
     grid-template-columns: 1fr; /* Change to a single column on smaller screens */
   }
