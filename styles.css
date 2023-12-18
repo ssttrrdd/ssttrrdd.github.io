@@ -13,10 +13,20 @@ body {
 
 /* Set a responsive grid layout */
 .parent {
-  display: grid;
-  grid-gap: 5px;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive columns */
+display: grid;
+grid-template-columns: 15% 35% 50%;
+grid-template-rows: 10% repeat(2, 25%) 1fr 11%;
+grid-column-gap: 4px;
+grid-row-gap: 4px;
 }
+
+.div1 { grid-area: 1 / 1 / 2 / 4; }
+.div2 { grid-area: 2 / 1 / 3 / 2; }
+.div3 { grid-area: 3 / 1 / 4 / 2; }
+.div4 { grid-area: 4 / 1 / 5 / 2; }
+.div5 { grid-area: 2 / 2 / 5 / 3; }
+.div6 { grid-area: 2 / 3 / 5 / 4; }
+.div7 { grid-area: 5 / 1 / 6 / 4; }
 
 /* Example media query for adjusting the layout on smaller screens */
 @media (max-width: 600px) {
