@@ -26,9 +26,9 @@ grid-row-gap: 10px;
 .div5 { grid-area: 5 / 1 / 6 / 6; }
 
 .model1 {
-    width: 100%;
+    width: 50%;
     border: 1px solid #000;
-}
+  }
 
 /* Additional styling for clarity, you can modify as needed */
 .parent > div {
