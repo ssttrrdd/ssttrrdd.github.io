@@ -7,7 +7,7 @@ body {
 .parent > div {
   background-color: #fff;
   border: 1px solid #000;
-  padding: 4px;
+  padding: 2px;
   text-align: left;
 }
 
@@ -16,8 +16,8 @@ body {
   display: grid;
   grid-template-columns: 15% 35% 50%;
   grid-template-rows: repeat(3, min-content) 1fr min-content;
-  grid-column-gap: 4px;
-  grid-row-gap: 4px;
+  grid-column-gap: 2px;
+  grid-row-gap: 2px;
 }
 
 .div1 { grid-area: 1 / 1 / 2 / 4; }
@@ -45,7 +45,8 @@ body {
 .parent2 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 5px;
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 2px;
 }
 
 .model1 {
