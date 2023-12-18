@@ -1,60 +1,43 @@
 body {
   background-color: #fff;
   font-family: Arial;
-  /*
-Adjust the background color
-röd d60e47
-vit fff
-svart 000
-grå BFB7B0
-blå 0B5778
-grön 49908C
-gul FECB2F */
+}
+
+/* Define a common style for the grid items */
+.parent > div {
+  background-color: #fff;
+  border: 1px solid #000;
+  padding: 5px;
+  text-align: left;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* Set a responsive grid layout */
+.parent {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive columns */
+}
+
+/* Example media query for adjusting the layout on smaller screens */
+@media (max-width: 600px) {
+  .parent {
+    grid-template-columns: 1fr; /* Change to a single column on smaller screens */
+  }
+}
+
+/* Additional styling for clarity, you can modify as needed */
+.img-container {
+  border: 1px solid #000;
+}
+
+.parent2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
 }
 
 .model1 {
-    width: 1fr;
-    border: 1px solid #000;
-  }
-
-/* Additional styling for clarity, you can modify as needed */
-.parent > div {
-    background-color: #fff;
-    border: none;
-    padding: 5px;
-    text-align: left;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+  width: 100%; /* Make the model1 element responsive */
+  border: 1px solid #000;
 }
-.parent2 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 5px;
-    grid-row-gap: 5px;
-}
-img {
-    border: 1px solid #000;
-}
-
-.parent {
-        display: grid;
-        grid-gap: 10px;
-        grid-template-columns: auto; /* Set to one column with equal width */
-        grid-template-areas:
-            "div1"
-            "div2"
-            "div3"
-            "div4"
-            "div5"
-            "div6"
-            "div7";
-    }
-
-    .div1 { grid-area: div1; }
-    .div2 { grid-area: div2; }
-    .div3 { grid-area: div3; }
-    .div4 { grid-area: div4; }
-    .div5 { grid-area: div5; }
-    .div6 { grid-area: div6; }
-    .div7 { grid-area: div7; }
-
