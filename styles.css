@@ -13,11 +13,11 @@ body {
 
 /* Set a responsive grid layout */
 .parent {
-display: grid;
-grid-template-columns: 15% 35% 50%;
-grid-template-rows: min-content repeat(2, 25%) 1fr min-content;
-grid-column-gap: 4px;
-grid-row-gap: 4px;
+  display: grid;
+  grid-template-columns: 15% 35% 50%;
+  grid-template-rows: min-content repeat(2, 25%) 1fr min-content;
+  grid-column-gap: 4px;
+  grid-row-gap: 4px;
 }
 
 .div1 { grid-area: 1 / 1 / 2 / 4; }
@@ -38,6 +38,8 @@ grid-row-gap: 4px;
 /* Additional styling for clarity, you can modify as needed */
 .img-container {
   border: 1px solid #000;
+  max-width: 100%; /* Make the image container responsive */
+  height: auto;
 }
 
 .parent2 {
