@@ -9,7 +9,7 @@ body {
   padding: 1px;
   text-align: left;
 }
-  
+
 .parent {
   display: grid;
   grid-template-columns: 15% 35% 50%;
@@ -41,6 +41,7 @@ body {
 }
 
 .model1 {
-  width: 100%; /* Make the model1 element responsive */
   border: 1px solid #000;
+  max-width: 100%; /* Make the image container responsive */
+  height: auto;
 }
