@@ -53,6 +53,6 @@ body {
   }
 
   .div1, .div2, .div3, .div4, .div5, .div6, .div7 {
-    grid-column: 1; /* Make each div span the full width */
+    grid-column: span 1; /* Make each div span the full width */
   }
 }
