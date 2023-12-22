@@ -2,6 +2,9 @@ body {
   background-color: #fff;
   font-family: Arial;
 }
+h1 {
+ color: #d60e47;
+}
 
 .parent > div {
   background-color: #fff;
