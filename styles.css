@@ -18,8 +18,8 @@ h1 {
   display: grid;
   grid-template-columns: 15% 35% 50%;
   grid-template-rows: repeat(3, min-content) 1fr min-content;
-  grid-column-gap: 16px;
-  grid-row-gap: 16px;
+  grid-column-gap: 12px;
+  grid-row-gap: 12px;
 }
 
 .div1 { grid-area: 1 / 1 / 2 / 4; }
@@ -53,10 +53,10 @@ h1 {
 @media (max-width: 1000px) {
 	.parent {
 	display: grid;
-	grid-template-columns: 96%;
+	grid-template-columns: 98%;
 	grid-template-rows: repeat(6, auto);
 	grid-column-gap: 0px;
-	grid-row-gap: 16px;
+	grid-row-gap: 12px;
 	justify-content: center;
 	}
 	.div1 { grid-area: 1 / 1 / 2 / 2; }
