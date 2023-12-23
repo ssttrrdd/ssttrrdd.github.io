@@ -41,11 +41,11 @@ h1 {
   height: auto;
   align-items: center;
 }
-
 .model1 {
   border: 1px solid #000;
-  max-width: 90%;
+  max-width: 100%;
   height: auto;
+  margin: 0 auto; /* This centers the element horizontally */
 }
 
 /* Media query for mobile responsiveness */
