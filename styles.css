@@ -47,7 +47,7 @@ h1 {
 
 .model1 {
   border: 1px solid #000;
-  max-width: 90%%; /* Make the image container responsive */
+  max-width: 90%; /* Make the image container responsive */
   height: auto;
 }
 /* Media query for mobile responsiveness */
