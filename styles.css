@@ -41,8 +41,11 @@ h1 {
 /* Additional styling for clarity, you can modify as needed */
 .img-container {
   border: 1px solid #000;
-  max-width: 100%; /* Make the image container responsive */
+  max-width: 100%;
   height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .model1 {
