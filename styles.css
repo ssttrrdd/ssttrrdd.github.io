@@ -37,15 +37,15 @@ h1 {
 
 /* Additional styling for clarity */
 .img-container {
-  border: 1px solid #000;
-  border-radius: 10px;
+  border: 2px solid gray;
+  border-radius: 10px 10px 0 0;
   max-width: 100%;
   height: auto;
   margin: 0 auto;
 }
 .model1 {
-  border: 1px solid #000;
-  border-radius: 10px;
+  border: 2px solid gray;
+  border-radius: 10px 10px 0 0;
   max-width: 100%;
   justify-content: center;
   height: auto;
