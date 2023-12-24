@@ -39,14 +39,14 @@ h1 {
 .img-container {
   border: 2px solid gray;
   border-radius: 10px 10px 0 0;
-  max-width: 98%;
+  max-width: 99%;
   height: auto;
   margin: 0 auto;
 }
 .model1 {
   border: 2px solid gray;
   border-radius: 10px 10px 0 0;
-  max-width: 98%;
+  max-width: 99%;
   justify-content: center;
   height: auto;
   margin: 0 auto; /* This centers the element horizontally */
