@@ -11,6 +11,9 @@ h2 {
 /* Parent container styles */
 .parent > div {
   background-color: #fff;
+  h2 {
+  color: #000;
+}
   /* border: 1px solid gray; Specify a border style */
   padding: 0;
   text-align: left;
