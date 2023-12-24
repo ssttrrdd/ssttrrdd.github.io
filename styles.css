@@ -12,7 +12,7 @@ h1 {
 .parent > div {
   background-color: #fff;
   /* border: 1px solid gray; Specify a border style */
-  padding: 4px;
+  padding: 0;
   text-align: left;
   border-radius: 10px;
   box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.20);
