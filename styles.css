@@ -15,10 +15,7 @@ h2 {
   padding: 0;
   text-align: left;
   border-radius: 10px;
-  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.20);
-}
-.div3 {
-  background-color: gray;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.18);
   }
 
 .parent {
@@ -45,6 +42,7 @@ h2 {
   max-width: 99%;
   height: auto;
   margin: 0 auto;
+  background-color: gray;
 }
 
 .model1 {
