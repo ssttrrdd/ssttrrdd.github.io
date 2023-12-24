@@ -38,12 +38,14 @@ h1 {
 /* Additional styling for clarity */
 .img-container {
   border: 1px solid #000;
+  border-radius: 10px;
   max-width: 100%;
   height: auto;
-  align-items: center;
+  margin: 0 auto;
 }
 .model1 {
   border: 1px solid #000;
+  border-radius: 10px;
   max-width: 100%;
   height: auto;
   margin: 0 auto; /* This centers the element horizontally */
