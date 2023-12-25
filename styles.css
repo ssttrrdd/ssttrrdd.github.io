@@ -6,7 +6,7 @@ body {
 
 /* Stilar för förälderbehållaren */
 .parent > div {
-  background-color: #fff;
+  background-color: #fffafa;
   padding: 4;
   text-align: left;
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.10);
