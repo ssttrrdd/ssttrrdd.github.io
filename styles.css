@@ -41,7 +41,7 @@ body {
 }
 
 /* Media query för responsivitet på mobilen */
-@media (max-width: 1000px) {
+@media (max-width: 844px) {
   .parent {
     display: grid;
     grid-template-columns: 98%; /* Anpassa bredd för mobilvy */
