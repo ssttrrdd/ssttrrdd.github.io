@@ -4,26 +4,20 @@ body {
   font-family: Arial, sans-serif; /* Modernize font stack */
 }
 
-h2 {
-  color: #d60e47;
-}
-
 /* Stilar för förälderbehållaren */
 .parent > div {
   background-color: #fff;
-  color: #000; /* Moved h2 color here for better readability */
-  padding: 0;
+  padding: 4;
   text-align: left;
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.18);
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.10);
   }
 
 .parent {
   display: grid;
   grid-template-columns: 1fr 3fr 6fr;
   grid-template-rows: repeat(3, min-content) 1fr min-content;
-  grid-column-gap: 12px;
-  grid-row-gap: 12px;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
 }
 
 /* Rutområden för underordnade element */
@@ -37,12 +31,9 @@ h2 {
 
 /* Ytterligare stil för tydlighet */
 .img-container, .model1 {
-  border: 2px solid gray;
-  border-radius: 10px 10px 0 0;
   max-width: 99%;
   height: auto;
   margin: 0 auto;
-  background-color: gray;
 }
 
 .model1 {
