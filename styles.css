@@ -61,7 +61,7 @@ tr:hover {
 }
 
 /* Media query för responsivitet på mobilen */
-@media (max-width: 1024px) {
+@media (max-width: 992px) {
   .parent {
     display: grid;
     grid-template-columns: 98%; /* Anpassa bredd för mobilvy */
