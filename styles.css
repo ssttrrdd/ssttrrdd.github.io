@@ -37,11 +37,12 @@ body {
 }
 
 .model1 {
+  display: flex;
   justify-content: center; /* Assuming this is within a flex container */
 }
 
 /* Media query för responsivitet på mobilen */
-@media (max-width: 844px) {
+@media (max-width: 1024px) {
   .parent {
     display: grid;
     grid-template-columns: 98%; /* Anpassa bredd för mobilvy */
