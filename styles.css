@@ -3,6 +3,10 @@ body {
   background-color: #E9EBEE;
   font-family: Arial, sans-serif; /* Modernize font stack */
 }
+table {
+  width: 100%;
+  table-layout: fixed;
+}
 
 /* Stilar för förälderbehållaren */
 .parent > div {
