@@ -7,16 +7,18 @@ table {
   width: 100%;
   table-layout: fixed;
 }
-th, td {
-  padding: 4px;          /* Add padding for better readability */
-  text-align: left;       /* Align text to the left */
-  border-bottom: 1px solid #ddd;  /* Add a bottom border for separation */
-}
 
 /* Style for table header */
-th {
-  background-color: #f2f2f2;  /* Background color for header */
-}
+th, td {
+            border: 1px none #ddd;
+            padding: 4px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
 
 /* Hover effect for table rows */
 tr:hover {
