@@ -43,9 +43,10 @@ table {
   width: 100%;
   table-layout: fixed;
         border-collapse: collapse;
+        background-color: #f7f7f7
     }
 th, td {
-      border: 1px solid #000;
+      border: 2px solid #fff;
       text-align: left;
       padding: 4px;
     }
@@ -62,6 +63,12 @@ body {
 h1 {
   color: red;
 }
+img {
+  width: 100%;
+  margin: 2px;
+  border: 1px solid gray;
+}
+
 
 .parent > div {
   background-color: #fff;
@@ -71,7 +78,7 @@ h1 {
   }
 
 .card {
-  margin: auto;
+  margin: 2px;
   text-align: left;
 }
 
@@ -81,23 +88,13 @@ h1 {
 
 /*picture grid div 6 */
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 4px;
+.test1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
 }
 
-/* Create four equal columns that sits next to each other */
-.column {
-  flex: 25%;
-  max-width: 25%;
-  padding: 4px;
-}
 
-.column img {
-  vertical-align: middle;
-  width: 100%;
-}
 
 /* Media query för responsivitet på mobilen. */
 @media (max-width: 1100px) {
