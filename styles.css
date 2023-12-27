@@ -73,6 +73,18 @@ tr:hover {
   justify-content: center; /* Assuming this is within a flex container */
 }
 
+.parent2 {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-template-rows: repeat(2, 1fr);
+grid-column-gap: 20px;
+grid-row-gap: 20px;
+}
+
+.div12 { grid-area: 1 / 1 / 3 / 4;
+       border: 1px solid #000;
+       } 
+
 /* Media query för responsivitet på mobilen */
 @media (max-width: 992px) {
   .parent {
