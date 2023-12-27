@@ -2,10 +2,10 @@
 
 .parent {
 display: grid;
-grid-template-columns: 15% 40% 45%;
-grid-template-rows: 10% repeat(3, 1fr);
+grid-template-columns: min-content 40% 45%;
+grid-template-rows: repeat(3, min-content) 1fr min-content;
 grid-column-gap: 10px;
-grid-row-gap: 20px;
+grid-row-gap: 10px;
 }
 
 .div1 { grid-area: 1 / 1 / 2 / 4; }
@@ -16,10 +16,28 @@ grid-row-gap: 20px;
 .div6 { grid-area: 2 / 3 / 3 / 4; }
 .div7 { grid-area: 3 / 3 / 5 / 4; }
 
+table {
+  width: 100%;
+  table-layout: fixed;
+        border-collapse: collapse;
+    }
+th, td {
+      border: 1px solid #000;
+      text-align: left;
+      padding: 8px;
+    }
+th {
+      background-color: #f7f7f7;
+    }
+
 /*Styling*/
 
 body {
   background-color: #f7f7f7;
+  font-family: Arial, sans-serif;
+}
+h1 {
+  color: red;
 }
 
 .parent > div {
@@ -29,15 +47,23 @@ body {
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.10);
   }
 
+.card {
+  margin: auto;
+  text-align: left;
+}
 
-/* Media query för responsivitet på mobilen. 992px lika pico css */
+.summary {
+  cursor:pointer;
+}
+
+/* Media query för responsivitet på mobilen. */
 @media (max-width: 992px) {
   .parent {
     display: grid;
     grid-template-columns: 98%; /* Anpassa bredd för mobilvy */
     grid-template-rows: repeat(6, auto);
     grid-column-gap: 0px;
-    grid-row-gap: 12px;
+    grid-row-gap: 10px;
     justify-content: center;
   }
 
