@@ -7,6 +7,8 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self';">
     <link rel="stylesheet" href="styles.css">
     <title>Technical specifications</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </head>
 <body>
     <div class="parent">
@@ -99,5 +101,25 @@
            TESTTESTTEST
         </div>
     </div>
+<script>
+  function generatePDF() {
+    // Hämta HTML-elementet med den valda klassen
+    const element = document.querySelector('.parent');
+
+    // Konvertera HTML-elementet till en canvas
+    html2canvas(element).then((canvas) => {
+      // Skapa en jsPDF-instans
+      const pdf = new jsPDF();
+
+      // Lägg till canvas-bilden i PDF
+      pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0);
+
+      // Ladda ner PDF-filen
+      pdf.save('din_filenamn.pdf');
+    });
+  }
+</script>
+<button onclick="generatePDF()">Generera PDF</button>
 </body>
+
 </html>
