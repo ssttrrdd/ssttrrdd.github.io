@@ -77,13 +77,16 @@ tr:hover {
 display: grid;
 grid-template-columns: repeat(3, 1fr);
 grid-template-rows: repeat(2, 1fr);
-grid-column-gap: 20px;
-grid-row-gap: 20px;
+grid-column-gap: 10px;
+grid-row-gap: 10px;
 }
 
-.div12 { grid-area: 1 / 1 / 3 / 4;
-       border: 1px solid #000;
-       } 
+.div12 { grid-area: 1 / 1 / 2 / 2; }
+.div22 { grid-area: 1 / 2 / 2 / 3; }
+.div32 { grid-area: 1 / 3 / 2 / 4; }
+.div42 { grid-area: 2 / 1 / 3 / 2; }
+.div52 { grid-area: 2 / 2 / 3 / 3; }
+.div62 { grid-area: 2 / 3 / 3 / 4; } 
 
 /* Media query för responsivitet på mobilen */
 @media (max-width: 992px) {
