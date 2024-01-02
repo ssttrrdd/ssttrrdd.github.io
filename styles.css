@@ -117,7 +117,10 @@ img {
 }
 /* visa dölj utskrift. */
 @media print {
-    .div3 {
+    .div3, .but1 {
         visibility: hidden;
+       }         
+   .div1, .div2, .div4, .div5, .div6 ,.div7 {
+    grid-area: auto;
    }
 }
