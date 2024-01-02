@@ -66,13 +66,13 @@ h1 {
 img {
   width: 100%;
   margin: 2px;
-  border: 1px solid gray;
+  border: 2px solid gray;
 }
 
 
 .parent > div {
   background-color: #fff;
-  border-left: 2px solid gray;
+  border-left: 2px solid #d60e47;
   padding: 4px;
   text-align: left;
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.10);
