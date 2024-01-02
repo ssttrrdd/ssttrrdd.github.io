@@ -115,3 +115,11 @@ img {
 
   .div5 { grid-row: span 3; } /* Justera radspann för .div5 i mobilläge. Varför? */
 }
+/* visa dölj utskrift. */
+@media print {
+    .div3 {
+        visibility: hidden;
+    }
+
+    }
+}
