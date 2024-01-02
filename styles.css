@@ -119,7 +119,5 @@ img {
 @media print {
     .div3 {
         visibility: hidden;
-    }
-
-    }
+   }
 }
