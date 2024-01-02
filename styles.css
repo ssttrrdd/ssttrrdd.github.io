@@ -117,6 +117,14 @@ img {
 }
 /* visa dölj utskrift. */
 @media print {
+     .parent {
+    display: grid;
+    grid-template-columns: 98%; /* Anpassa bredd för mobilvy */
+    grid-template-rows: repeat(5, auto);
+    grid-column-gap: 0px;
+    grid-row-gap: 10px;
+    justify-content: center;
+     }
     .div3, .but1 {
         visibility: hidden;
        }         
