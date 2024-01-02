@@ -117,7 +117,7 @@ img {
 }
 /* visa dölj utskrift. */
 @media print {
-       .but1 .link1 {
+       .but1, .link1 {
         visibility: hidden;
 }
 }
