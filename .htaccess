@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "login"
-AuthUserFile https://ssttrrdd.github.io/.htpasswd
-Require valid-user
