@@ -92,8 +92,10 @@ img {
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
 }
-
-
+ .subgrid > div {
+    padding: 1rem;
+    background: oklch(50% none none / 25%);
+ }
 
 /* Media query för responsivitet på mobilen. */
 @media (max-width: 1100px) {
