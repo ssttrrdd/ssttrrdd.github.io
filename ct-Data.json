@@ -1,0 +1,32 @@
+﻿{ 
+  "select_count": 3,
+  
+  "autoformat_rules":
+  [
+  ["Yes", "ct-cond-good"],
+  ["No", "ct-cond-bad"],
+  ["?", "ct-cond-neutral"],
+  ["Read", "ct-cond-partial"],
+  ["Write", "ct-cond-partial"],
+  ["RW", "ct-cond-good"]
+  ],
+  
+  "data":
+  [
+  [0,"Features","Select here…","T10","X30","X43","X44","X50"],
+  [1,"Main","","","","","",""],
+  [2,"Manufacturer","","DTAB","DA_SE","DA_SE","DA_SE","DA_SE"],
+  [2,"Website","","http://www.arno.com.br","http://www.walitta.com.br","www.brastemp.com.br","www.electrolux.com.br","www.ge.com"],
+  [2,"Price","","600","550","200","750","650"],
+  [0,"Durability","Lasts longer","","","","",""],
+  [2,"A60","Can be immersed","Yes","No","?","Yes","?"],
+  [2,"A120","","Yes","No","No","No","Yes"],
+  [2,"Shockproof","","No","No","Yes","?","No"],
+  [0,"Color options","","","","","",""],
+  [2,"RC3","","Yes","Yes","Yes","Yes","Yes"],
+  [2,"RC4","","No","No","No","Yes","No"],
+  [2,"Green","Best color","No","No","No","No","No"],
+  [2,"White","","Yes","No","Yes","No","No"],
+  [2,"Orange","Strange color","Blank","","?","Text","Yes"]
+  ],
+}
