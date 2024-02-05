@@ -2,17 +2,21 @@ html {
     font-size: 14px;
 }
 
-body {
-    font-family: Arial;
-    background-color: #f0f0f0;
-    color: #333;
-}
-.container {
-  display: grid;
-  grid-template-columns: repeat3,1fr;
-  grid-template-rows: min-content min-content min-content auto;
-  gap: 10px;
-}
+      /* CSS Grid Layout */
+      .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+      }
+      .header, .classification, .card {
+        grid-column: span 3;
+      }
+      .header {
+        background-color: #f0f0f0;
+      }
+      .links, .overview, .pictures, .sketches, .info {
+        background-color: #f9f9f9;
+      }
 
 /* Add shadow to grid elements */
 .container > * {
