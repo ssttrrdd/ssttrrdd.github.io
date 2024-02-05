@@ -1,28 +1,15 @@
-html {
-    font-size: 14px;
-}
-
-      /* CSS Grid Layout */
-      .container {
+.container {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 10px;
       }
-      .header, .classification, .card {
+.header, .classification, .card {
         grid-column: span 3;
-      }
-      .header {
-        background-color: #f0f0f0;
-      }
-      .links, .overview, .pictures, .sketches, .info {
-        background-color: #f9f9f9;
       }
 
 .container > * {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Small shadow */
     border-top: 2px solid #d60e47; /* Top border line */
-}
-
 }
 
 /* Media query for stacking items vertically below 992px */
