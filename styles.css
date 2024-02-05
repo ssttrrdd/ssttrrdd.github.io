@@ -8,8 +8,9 @@ body {
       }
 
 .container > * {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Small shadow */
-    border-left: 3px solid #d60e47; /* Top border line */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25); /* Small shadow */
+    border-left: 3px solid #d60e47;
+    padding-left: 3px; /* Top border line */
 }
 
 /* Media query for stacking items vertically below 992px */
