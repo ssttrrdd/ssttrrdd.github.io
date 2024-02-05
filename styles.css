@@ -1,9 +1,5 @@
-/* Reset and normalize CSS */
-@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
-
-/* Global styles */
 html {
-    font-size: 11px;
+    font-size: 14px;
 }
 
 body {
@@ -13,7 +9,7 @@ body {
 }
 .container {
   display: grid;
-  grid-template-columns: 1fr 40% 40%;
+  grid-template-columns: repeat3,1fr;
   grid-template-rows: min-content min-content min-content auto;
   gap: 10px;
 }
