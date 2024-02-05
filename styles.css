@@ -1,104 +1,29 @@
 .container {  display: grid;
-  grid-template-columns: min-content 40% auto;
+  grid-template-columns: 1fr 40% 40%;
   grid-template-rows: min-content min-content min-content auto;
-  gap: 6px 6px;
+  gap: 10px 10px;
   grid-auto-flow: row;
-  justify-content: center;
-  align-content: start;
-  justify-items: start;
-  align-items: start;
+  justify-items: stretch;
+  align-items: stretch;
   grid-template-areas:
-    "Header Header Header"
-    "Properties Overview Pictures"
-    "Card Overview Sketches"
-    "Links Overview Details";
-  width: 50%;
-  height: 50%;
+    "header header header"
+    "classification overview pictures"
+    "card overview sketches"
+    "links overview info";
 }
 
-.Header { grid-area: Header; }
+.header { grid-area: header; }
 
-.Properties { grid-area: Properties; }
+.classification { grid-area: classification; }
 
-.Card { grid-area: Card; }
+.card { grid-area: card; }
 
-.Links { grid-area: Links; }
+.links { grid-area: links; }
 
-.Overview { grid-area: Overview; }
+.overview { grid-area: overview; }
 
-.Pictures { grid-area: Pictures; }
+.pictures { grid-area: pictures; }
 
-.Sketches { grid-area: Sketches; }
+.sketches { grid-area: sketches; }
 
-.Details { grid-area: Details; }
-
-
-
-.parent {
-   display: grid;
-
-   grid-template-rows: 10% auto;
-   grid-template-columns: auto 40% auto;
-
-   gap: 10px;
-   height: 100%;
-}
-
-table {
-  width: 100%;
-  table-layout: fixed;
-        border-collapse: collapse;
-        background-color: #f7f7f7
-    }
-th, td {
-      border: 2px solid #fff;
-      text-align: left;
-      padding: 4px;
-    }
-th {
-      background-color: #f7f7f7;
-    }
-
-/*Styling*/
-
-body {
-    font-family: Arial, sans-serif;
-}
-h1 {
-  color: #d60e47;
-}
-img {
-  width: 100%;
-  margin: 2px;
-  border: 2px solid gray;
-}
-
-.summary {
-  cursor:pointer;
-}
-
-
-/* Media query för responsivitet på mobilen. */
-@media (max-width: 1100px) {
-  .parent {
-    display: grid;
-    grid-template-columns: 98%; /* Anpassa bredd för mobilvy */
-    grid-template-rows: repeat(6, auto);
-    grid-column-gap: 0px;
-    grid-row-gap: 10px;
-    justify-content: center;
-  }
-
-  /* Uppdatera rutområden för mobil layout */
-  .div1, .div2, .div3, .div4, .div5, .div6 ,.div7 {
-    grid-area: auto; /* Använd auto för att undvika fast layout */
-  }
-
-  .div5 { grid-row: span 3; } /* Justera radspann för .div5 i mobilläge. Varför? */
-}
-/* visa dölj utskrift. */
-@media print {
-       .but1, .link1 {
-        visibility: hidden;
-}
-}
+.info { grid-area: info; }
