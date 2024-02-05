@@ -3,11 +3,11 @@
 
 /* Global styles */
 html {
-    font-size: 10px;
+    font-size: 11px;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: Arial;
     background-color: #f0f0f0;
     color: #333;
 }
