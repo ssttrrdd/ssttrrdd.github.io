@@ -3,13 +3,13 @@ body {
     font-family: Arial, sans-serif;
 }
 h1 {
-    font-size: Large;
+    font-size: 20;
 }
 /* Container */
 .container {
 display: grid;
 grid-template-columns: min-content 40% auto;
-grid-template-rows: repeat(4, 1fr);
+grid-template-rows: min-content min-content min-content auto;
 grid-column-gap: 10px;
 grid-row-gap: 10px;
 }
