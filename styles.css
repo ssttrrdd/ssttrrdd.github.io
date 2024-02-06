@@ -61,9 +61,8 @@ h1 {
     .container {
         grid-template-columns: 1fr; /* Change to a single column layout */
         grid-template-rows: auto; /* Auto rows */
-    }
 
-    /* Update grid areas to stack vertically */
+       /* Update grid areas to stack vertically */
     .header { grid-area: auto; }
     .classification { grid-area: auto; }
     .card { grid-area: auto; }
