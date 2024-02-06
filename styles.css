@@ -6,8 +6,10 @@ body {
 /* Container */
 .container {
 display: grid;
-grid-template-columns: repeat(3, 1fr);
-grid-template-rows: repeat(4, 1fr);
+/* grid-template-columns: repeat(3, 1fr);
+grid-template-rows: repeat(4, 1fr); */
+grid-template-columns: min-content 40% auto);
+grid-template-rows: repeat(4, 1fr); 
 grid-column-gap: 10px;
 grid-row-gap: 10px;
 }
