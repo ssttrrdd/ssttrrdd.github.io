@@ -2,16 +2,18 @@
 body {
     font-family: Arial, sans-serif;
 }
+
 h1 {
     font-size: 20px;
 }
+
 /* Container */
 .container {
-display: grid;
-grid-template-columns: min-content 40% auto;
-grid-template-rows: min-content repeat(3, auto);
-grid-column-gap: 10px;
-grid-row-gap: 10px;
+    display: grid;
+    grid-template-columns: min-content 40% auto;
+    grid-template-rows: min-content repeat(3, auto);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
 }
 
 .header { grid-area: 1 / 1 / 2 / 4; }
@@ -30,21 +32,13 @@ grid-row-gap: 10px;
 }
 
 .parent {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-grid-template-rows: repeat(4, 1fr);
-grid-column-gap: 10px;
-grid-row-gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
 }
 
-.div1 { grid-area: 1 / 1 / 2 / 4; }
-.div2 { grid-area: 2 / 1 / 3 / 2; }
-.div3 { grid-area: 3 / 1 / 4 / 2; }
-.div4 { grid-area: 4 / 1 / 5 / 2; }
-.div5 { grid-area: 2 / 2 / 5 / 3; }
-.div6 { grid-area: 2 / 3 / 3 / 4; }
-.div7 { grid-area: 3 / 3 / 4 / 4; }
-.div8 { grid-area: 4 / 3 / 5 / 4; }
 
 /* Grid */
 .grid {
@@ -62,18 +56,20 @@ grid-row-gap: 10px;
     border: 1px solid blue; /* Blue border */
 }
 
-
-
+/* Media query for screens under 992px */
 @media (max-width: 991px) {
-      grid-template-columns: auto; /* Change to a single column layout */
-        grid-template-rows: repeat(8, auto); /
+    .container {
+        grid-template-columns: 1fr; /* Change to a single column layout */
+        grid-template-rows: auto; /* Auto rows */
+    }
+
     /* Update grid areas to stack vertically */
-    .header { grid-area: 1 / 1 / 2 / 2; }
-    .classification { grid-area: 2 / 1 / 3 / 2; }
-    .card { grid-area: 3 / 1 / 4 / 2; }
-    .links { grid-area: 4 / 1 / 5 / 2; }
-    .overview { grid-area: 5 / 1 / 6 / 2; }
-    .pictures { grid-area: 6 / 1 / 7 / 2; }
-    .sketches { grid-area: 7 / 1 / 8 / 2; }
-    .info { grid-area: 8 / 1 / 9 / 2; }
+    .header { grid-area: auto; }
+    .classification { grid-area: auto; }
+    .card { grid-area: auto; }
+    .links { grid-area: auto; }
+    .overview { grid-area: auto; }
+    .pictures { grid-area: auto; }
+    .sketches { grid-area: auto; }
+    .info { grid-area: auto; }
 }
