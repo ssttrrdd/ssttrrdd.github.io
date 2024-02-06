@@ -19,7 +19,7 @@ body {
 .grid {
     display: grid;
     gap: 10px;
-    grid-template-columns: [column-1] 1fr [column-2] 1fr [column-3] 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     border: 1px solid red; /* Red border */
 }
 
