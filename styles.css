@@ -25,8 +25,7 @@ body {
 
 /* Subgrid */
 .grid > .subgrid {
-    grid-column: span 3;
-
+    grid-column: span q;
     display: grid;
     grid-template-columns: subgrid;
     border: 1px solid blue; /* Blue border */
