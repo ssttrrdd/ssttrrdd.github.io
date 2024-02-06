@@ -61,3 +61,12 @@ grid-row-gap: 10px;
     grid-template-columns: subgrid;
     border: 1px solid blue; /* Blue border */
 }
+
+
+
+@media (max-width: 991px) {
+    .container {
+        grid-template-columns: auto; /* Change to a single column layout */
+        grid-template-rows: repeat(8, auto); /* Each item in a separate row */
+    }
+}
