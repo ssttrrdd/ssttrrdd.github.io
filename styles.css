@@ -9,7 +9,7 @@ h1 {
 
 /* Container */
 .container {
-    display: grid;
+    display: flex;
     grid-template-columns: min-content 50% auto;
     grid-column-gap: 10px;
     grid-row-gap: 10px;
