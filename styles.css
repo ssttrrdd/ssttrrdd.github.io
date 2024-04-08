@@ -52,7 +52,7 @@ h1 {
 
 /* Subgrid */
 .grid > .subgrid {
-    grid-column: span 3; /* Ändra span q till span 3 */
+  /*  grid-column: span 3;  Ändra span q till span 3 */
     display: grid;
     grid-template-columns: subgrid;
     border: 1px solid blue; /* Blue border */
