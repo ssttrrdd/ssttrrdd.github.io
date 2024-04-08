@@ -14,7 +14,7 @@ h2 {
 /* Container */
 .container {
     display: grid;
-    grid-template-columns: min-content 50% auto;
+    grid-template-columns: min-content 35% 40% ;
     grid-template-rows: repeat(3, auto) repeat(4, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 10px;
