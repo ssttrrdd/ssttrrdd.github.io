@@ -11,7 +11,7 @@ h1 {
 .container {
     display: grid;
     grid-template-columns: min-content 40% auto;
-    grid-template-rows: min-content repeat(3, auto)
+    grid-template-rows: min-content repeat(3, auto); /* Semikolon här */
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     align-items: self-start;
@@ -40,10 +40,7 @@ h1 {
     grid-template-rows: repeat(4, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 10px;
-    
-    
 }
-
 
 /* Grid */
 .grid {
@@ -51,12 +48,11 @@ h1 {
     gap: 10px;
     grid-template-columns: 1fr 1fr 1fr;
     border: 1px solid #d60e47; /* #d60e47 border */
-    
 }
 
 /* Subgrid */
 .grid > .subgrid {
-    grid-column: span q;
+    grid-column: span 3; /* Ändra span q till span 3 */
     display: grid;
     grid-template-columns: subgrid;
     border: 1px solid blue; /* Blue border */
@@ -67,8 +63,9 @@ h1 {
     .container {
         grid-template-columns: 1fr; /* Change to a single column layout */
         grid-template-rows: auto; /* Auto rows */
+    }
 
-       /* Update grid areas to stack vertically */
+    /* Update grid areas to stack vertically */
     .header { grid-area: auto; }
     .classification { grid-area: auto; }
     .card { grid-area: auto; }
