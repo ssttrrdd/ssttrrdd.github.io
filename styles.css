@@ -11,7 +11,7 @@ h1 {
 .container {
     display: grid;
     grid-template-columns: min-content 50% auto;
-    /* grid-template-rows: masonry; */
+    grid-template-rows: none;
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     align-items: self-start;
