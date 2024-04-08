@@ -12,7 +12,7 @@ h1 {
     display: grid;
     grid-template-columns: min-content 40% auto;
     /* grid-template-rows: min-content repeat(3, auto); /* Semikolon här */
-    grid-template-rows: none;
+    grid-template-rows: masonry;
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     align-items: self-start;
