@@ -30,7 +30,7 @@ h1 {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25); /* Small shadow */
     border-left: 3px solid #d60e47;
     padding-left: 3px; /* Top border line */
-    min-height: 150px;
+    min-height: auto;
 }
 
 .parent {
