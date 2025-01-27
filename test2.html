@@ -3,113 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HTML Accordion Example</title>
+  <title>Toggle Columns and Rows</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
+    table {
+      margin: 20px auto;
     }
-
-    .accordion {
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      overflow: hidden;
-      max-width: 600px;
-      margin: 0 auto;
+    th, td {
+      border: 2px solid #ccc;
+      text-align: center;
+      padding: 8px;
     }
-
-    .accordion-item {
-      border-bottom: 1px solid #ddd;
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
     }
-
-    .accordion-header {
-      background-color: #f7f7f7;
-      padding: 15px;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .accordion-header:hover {
-      background-color: #eaeaea;
-    }
-
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease-out;
-      padding: 0 15px;
-      background-color: #fff;
-    }
-
-    .accordion-content p {
-      margin: 15px 0;
-    }
-
-    .active .accordion-content {
-      max-height: 100px;
-    }
-
-    .arrow {
-      transition: transform 0.3s ease-out;
-    }
-
-    .active .arrow {
-      transform: rotate(180deg);
+    tr:hover {
+      background-color: #f1f1f1;
     }
   </style>
 </head>
 <body>
-  <div class="accordion">
-    <div class="accordion-item">
-      <div class="accordion-header">
-        <span>Section 1</span>
-        <span class="arrow">▼</span>
-      </div>
-      <div class="accordion-content">
-        <p>This is the content for section 1. You can put any HTML here.</p>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <div class="accordion-header">
-        <span>Section 2</span>
-        <span class="arrow">▼</span>
-      </div>
-      <div class="accordion-content">
-        <p>This is the content for section 2. Feel free to customize it!</p>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <div class="accordion-header">
-        <span>Section 3</span>
-        <span class="arrow">▼</span>
-      </div>
-      <div class="accordion-content">
-        <p>This is the content for section 3. Add more items as needed.</p>
-      </div>
-    </div>
-  </div>
+<table id="myTable">
+  <tr>
+    <th>Header</th>
+    <th id="tx-header" style="cursor: pointer;">Tx</th>
+    <th class="toggle-columnT">T1x</th>
+    <th class="toggle-columnT">T1y</th>
+    <th id="sx-header" style="cursor: pointer;">Sx</th>
+    <th class="toggle-columnS">S1x</th>
+    <th class="toggle-columnS">S1y</th>
+  </tr>
+  <tr>
+    <td>V6</td>
+    <td>no</td>
+    <td class="toggle-columnT">no</td>
+    <td class="toggle-columnT">yes</td>
+    <td>yes</td>
+    <td class="toggle-columnS">no</td>
+    <td class="toggle-columnS">no</td>
+  </tr>
+  <tr>
+    <td>V8</td>
+    <td>no</td>
+    <td class="toggle-columnT">no</td>
+    <td class="toggle-columnT">no</td>
+    <td>no</td>
+    <td class="toggle-columnS">yes</td>
+    <td class="toggle-columnS">no</td>
+  </tr>
+  <tr>
+    <td>V10</td>
+    <td>no</td>
+    <td class="toggle-columnT">no</td>
+    <td class="toggle-columnT">no</td>
+    <td>no</td>
+    <td class="toggle-columnS">yes</td>
+    <td class="toggle-columnS">no</td>
+  </tr>
+  <tr>
+    <td>V12</td>
+    <td>no</td>
+    <td class="toggle-columnT">no</td>
+    <td class="toggle-columnT">no</td>
+    <td>no</td>
+    <td class="toggle-columnS">yes</td>
+    <td class="toggle-columnS">no</td>
+  </tr>
+</table>
 
-  <script>
-    const headers = document.querySelectorAll('.accordion-header');
-
-    headers.forEach(header => {
-      header.addEventListener('click', () => {
-        const item = header.parentElement;
-        const content = item.querySelector('.accordion-content');
-
-        // Close other accordion items
-        document.querySelectorAll('.accordion-item').forEach(i => {
-          if (i !== item) {
-            i.classList.remove('active');
-          }
-        });
-
-        // Toggle the clicked item
-        item.classList.toggle('active');
-      });
+<script>
+  // Funktion för att toggla synlighet för en kolumnklass
+  function toggleColumns(className) {
+    const cells = document.querySelectorAll(`.${className}`);
+    cells.forEach(cell => {
+      cell.style.display = cell.style.display === "none" ? "" : "none";
     });
-  </script>
+  }
+
+  // Lägg till klickhändelse för Tx-headern
+  document.getElementById("tx-header").addEventListener("click", () => {
+    toggleColumns("toggle-columnT");
+  });
+
+  // Lägg till klickhändelse för Sx-headern
+  document.getElementById("sx-header").addEventListener("click", () => {
+    toggleColumns("toggle-columnS");
+  });
+</script>
 </body>
 </html>
