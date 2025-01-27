@@ -5,13 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Toggle Columns and Rows</title>
   <style>
+body {
+    font-family: Arial, sans-serif; /* Specifies Arial as the primary font */
+    font-size: 18px; /* Optional: Sets the font size to 16px */
+}
     table {
       margin: 20px auto;
     }
     th, td {
-      border: 2px solid #ccc;
+      border: 2px solid #000;
       text-align: center;
-      padding: 8px;
+      padding: 2px;
     }
     tr:nth-child(even) {
       background-color: #f9f9f9;
@@ -19,6 +23,10 @@
     tr:hover {
       background-color: #f1f1f1;
     }
+	th {
+	transform: rotate(180deg);
+	writing-mode: vertical-rl;
+	}
   </style>
 </head>
 <body>
@@ -26,8 +34,8 @@
   <tr>
     <th>Header</th>
     <th id="tx-header" style="cursor: pointer;">Tx</th>
-    <th class="toggle-columnT">T1x</th>
-    <th class="toggle-columnT">T1y</th>
+    <th class="toggle-columnT"><a href="test3.html">T1x</a></th>
+    <th class="toggle-columnT"><a href="test3.html">T1y</a></th>
     <th id="sx-header" style="cursor: pointer;">Sx</th>
     <th class="toggle-columnS">S1x</th>
     <th class="toggle-columnS">S1y</th>
