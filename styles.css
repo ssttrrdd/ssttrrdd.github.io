@@ -1,163 +1,99 @@
-/* === styles.css (ASCII-art style) === */
+/* === styles.css (enkel, ljus, samma färger som ASCII-art) === */
 
-/* Konfig */
-:root{
+:root {
   --bg: #fbfbf8;
   --panel-bg: #ffffff;
   --ink: #0b1220;
   --muted: #475569;
   --accent: #2563eb;
-  --radius: 6px;
-  --maxw: 500px;
-
-/* - raden nedan bestämmer hur lång ASCII-ramen blir.
-   Om du ändrar --maxw, justera antalet "═" i --line. */
-  --line: "════════════════════════════════════════════════════════════════════════";
-  --topleft: "╔";
-  --topright: "╗";
-  --botleft: "╚";
-  --botright: "╝";
-  --vbar: "║";
+  --radius: 8px;
+  --shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-*{box-sizing:border-box;margin:0;padding:0;font-family: "Courier New", ui-monospace, SFMono-Regular, Menlo, monospace;}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Courier New", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
 
-html,body{
-  height:100%;
-  background: var(--bg);
+body {
+  background-color: var(--bg);
   color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
 }
 
-body{
-  display:flex;
-  align-items:flex-start;
-  justify-content:center;
-  padding:2rem;
-  -webkit-font-smoothing:antialiased;
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
-/* Behåll den smala layouten så ASCII-ramen ser bra ut */
-main{
-  width:100%;
-  max-width:var(--maxw);
-  display:grid;
-  gap:1rem;
+h1 {
+  font-size: 2rem;
+  color: var(--accent);
+  letter-spacing: 1px;
+  font-weight: 700;
 }
 
-/* Header med ASCII-banner (visas ovanför det vanliga h1) */
-header{
-  text-align:center;
-  margin-bottom:6px;
+/* Main & sections */
+main {
+  display: grid;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 500px;
 }
 
-/* Vi visar en dekorativ ASCII-banner via ::before */
-header::before{
-  content: var(--topleft) var(--line) var(--topright);
-  display:block;
-  font-size:0.78rem;
-  color:var(--muted);
-  margin-bottom:6px;
-  white-space:pre;
+section {
+  background-color: var(--panel-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  text-align: center;
 }
 
-header h1{
-  font-size:1.8rem;
-  letter-spacing:2px;
-  font-weight:700;
-  color:var(--accent);
-  background: linear-gradient(90deg, var(--accent), #1e40af 120%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  position:relative;
-  padding:6px 0;
+/* Text */
+h2 {
+  color: var(--accent);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
 }
 
-/* En inbyggd monospaced 'shadow'-ruta ovanför h1 */
-header h1::after{
-  content: var(--vbar) "  WELCOME  " var(--vbar);
-  display:block;
-  font-size:0.85rem;
-  color:var(--ink);
-  margin-top:6px;
-  white-space:pre;
+p {
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
-/* Varje section innesluten i ASCII-ram */
-section{
-  position:relative;
-  background:var(--panel-bg);
-  padding:1.1rem;
-  border-radius:var(--radius);
-  box-shadow: 0 1px 4px rgba(2,6,23,0.06);
-  overflow:hidden;
+/* Länkar */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 0.4rem 0.8rem;
+  display: inline-block;
+  font-weight: 500;
 }
 
-/* Top border */
-section::before{
-  content: var(--topleft) var(--line) var(--topright);
-  display:block;
-  font-size:0.78rem;
-  color:var(--muted);
-  margin-bottom:8px;
-  white-space:pre;
+/* Bild */
+img {
+  border-radius: var(--radius);
+  margin-top: 1rem;
+  box-shadow: var(--shadow);
+  max-width: 100%;
+  height: auto;
 }
 
-/* Bottom border */
-section::after{
-  content: var(--botleft) var(--line) var(--botright);
-  display:block;
-  font-size:0.78rem;
-  color:var(--muted);
-  margin-top:8px;
-  white-space:pre;
-}
-
-/* Innehållet formaterat som i en terminal */
-section h2{
-  font-size:1rem;
-  margin:0 0 0.35rem 0;
-  color:var(--ink);
-  font-weight:700;
-}
-
-/* text som ser ut som terminalinfo */
-section p, section a{
-  font-size:0.9rem;
-  color:var(--muted);
-  display:block;
-  white-space:pre-wrap;
-}
-
-/* Länk-stil i ASCII-stil (utan hover-effekter som du bad om) */
-a{
-  text-decoration:none;
-  color:var(--ink);
-  border:1px dashed var(--muted);
-  padding:0.35rem 0.6rem;
-  border-radius:4px;
-  display:inline-block;
-  margin-top:6px;
-  background: linear-gradient(180deg, rgba(37,99,235,0.06), rgba(37,99,235,0.02));
-}
-
-/* Gör QR-bilden 'ramad' som ett ASCII-block */
-section img{
-  display:block;
-  margin:0.8rem auto 0 auto;
-  width:200px;
-  height:auto;
-  background: repeating-linear-gradient(90deg, transparent 0 6px, rgba(0,0,0,0.01) 6px 12px);
-  padding:6px;
-  border-radius:4px;
-}
-
-/* Små skärmar - kortare ASCII-linje */
-@media (max-width:520px){
-  :root{
-    --line: "════════════════════════════════════════════";
-    --maxw: 420px;
+/* Små skärmar */
+@media (max-width: 500px) {
+  h1 {
+    font-size: 1.7rem;
   }
-  main{max-width:420px;}
-  header h1{font-size:1.6rem;}
+  section {
+    padding: 1rem;
+  }
 }
