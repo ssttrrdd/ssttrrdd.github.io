@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fönsteroffert — QuoteBuilder</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f0e8;
+    --surface: #faf7f2;
+    --card: #ffffff;
+    --ink: #1a1612;
+    --ink-light: #6b5f52;
+    --accent: #c8522a;
+    --accent-light: #e8725040;
+    --accent2: #3a5c3e;
+    --border: #d4c9b8;
+    --selected: #fff3ee;
+    --selected-border: #c8522a;
+    --mono: 'DM Mono', monospace;
+    --serif: 'Playfair Display', serif;
+    --sans: 'DM Sans', sans-serif;
+    --radius: 4px;
+    --shadow: 0 2px 12px rgba(26,22,18,0.08);
+    --shadow-lg: 0 8px 32px rgba(26,22,18,0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    background-image:
+      radial-gradient(circle at 20% 80%, rgba(200,82,42,0.04) 0%, transparent 60%),
+      radial-gradient(circle at 80% 20%, rgba(58,92,62,0.04) 0%, transparent 60%);
+    min-height: 100vh;
+    font-family: var(--sans);
+    color: var(--ink);
+    padding: 40px 20px;
+  }
+  .container { max-width: 900px; margin: 0 auto; }
+  header {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid var(--border);
+  }
+  .brand h1 { font-family: var(--serif); font-size: 2.2rem; letter-spacing: -0.02em; }
+  .brand p { font-family: var(--mono); font-size: 0.7rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 2px; }
+  .meta { text-align: right; }
+  .meta .quote-num { font-family: var(--mono); font-size: 0.75rem; color: var(--ink-light); letter-spacing: 0.08em; }
+  .meta .date { font-family: var(--mono); font-size: 0.7rem; color: var(--ink-light); margin-top: 2px; }
+  .toolbar { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+  .toolbar-group { display: flex; gap: 4px; align-items: center; padding: 4px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); }
+  .toolbar-label { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-light); text-transform: uppercase; letter-spacing: 0.1em; padding: 0 6px; }
+  .toolbar-divider { width: 1px; height: 20px; background: var(--border); margin: 0 4px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 5px; padding: 6px 12px;
+    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.05em;
+    border: 1px solid var(--border); border-radius: var(--radius);
+    background: var(--card); color: var(--ink); cursor: pointer;
+    transition: all 0.15s ease; white-space: nowrap; user-select: none;
+  }
+  .btn:hover { background: var(--surface); border-color: var(--ink-light); }
+  .btn:active { transform: translateY(1px); }
+  .btn.accent { background: var(--accent); color: white; border-color: var(--accent); }
+  .btn.accent:hover { background: #b04522; border-color: #b04522; }
+  .btn.green { background: var(--accent2); color: white; border-color: var(--accent2); }
+  .btn.green:hover { background: #2d4a30; }
+  .btn:disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
+  .selection-bar {
+    display: flex; align-items: center; gap: 12px; padding: 8px 14px;
+    background: var(--selected); border: 1px solid var(--selected-border);
+    border-radius: var(--radius); margin-bottom: 10px;
+    font-family: var(--mono); font-size: 0.7rem; color: var(--accent);
+  }
+  .selection-bar.hidden { display: none; }
+  .sel-count { font-weight: 500; }
+  .sel-actions { display: flex; gap: 6px; margin-left: auto; }
+  .table-wrap { background: var(--card); border: 1px solid var(--border); border-radius: 6px; box-shadow: var(--shadow); overflow: hidden; }
+  .quote-table { width: 100%; border-collapse: collapse; }
+  .quote-table thead tr { background: var(--ink); color: white; }
+  .quote-table thead th { font-family: var(--mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 12px 14px; text-align: left; font-weight: 500; white-space: nowrap; }
+  .quote-table thead th.center { text-align: center; }
+  .quote-table tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; cursor: pointer; }
+  .quote-table tbody tr:last-child { border-bottom: none; }
+  .quote-table tbody tr:hover { background: var(--surface); }
+  .quote-table tbody tr.selected { background: var(--selected) !important; box-shadow: inset 3px 0 0 var(--accent); }
+  .quote-table td { padding: 13px 14px; font-size: 0.88rem; vertical-align: middle; }
+  .td-num { font-family: var(--mono); font-size: 0.75rem; color: var(--ink-light); width: 32px; text-align: center; user-select: none; }
+  .td-cb { width: 36px; text-align: center; }
+  .td-cb input[type="checkbox"] { width: 15px; height: 15px; accent-color: var(--accent); cursor: pointer; }
+  .td-article { font-family: var(--mono); font-size: 0.72rem; color: var(--ink-light); }
+  .td-desc { min-width: 180px; }
+  .td-desc .window-name { font-weight: 500; font-size: 0.9rem; }
+  .td-desc .window-sub { font-size: 0.72rem; color: var(--ink-light); margin-top: 2px; font-family: var(--mono); }
+  .td-dim { font-family: var(--mono); font-size: 0.78rem; white-space: nowrap; }
+  .td-qty, .td-unit { text-align: center; }
+  .td-price { font-family: var(--mono); font-size: 0.82rem; text-align: right; }
+  .td-total { font-family: var(--mono); font-size: 0.82rem; font-weight: 500; text-align: right; color: var(--accent2); }
+  .badge { display: inline-block; padding: 2px 7px; border-radius: 20px; font-family: var(--mono); font-size: 0.65rem; font-weight: 500; letter-spacing: 0.05em; }
+  .badge-wood { background: #f0e6d3; color: #8b5e3c; }
+  .badge-alu { background: #dde8f0; color: #2a5a7a; }
+  .badge-pvc { background: #e8f0e0; color: #3a6030; }
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(26,22,18,0.55); backdrop-filter: blur(3px); z-index: 100; align-items: center; justify-content: center; }
+  .modal-overlay.open { display: flex; }
+  .modal { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 28px 32px; width: 340px; box-shadow: var(--shadow-lg); animation: modalIn 0.2s ease; }
+  @keyframes modalIn { from { transform: translateY(-12px) scale(0.97); opacity: 0; } to { transform: none; opacity: 1; } }
+  .modal h3 { font-family: var(--serif); font-size: 1.1rem; margin-bottom: 6px; }
+  .modal p { font-size: 0.8rem; color: var(--ink-light); margin-bottom: 20px; line-height: 1.5; }
+  .modal label { display: block; font-family: var(--mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-light); margin-bottom: 6px; }
+  .modal select { width: 100%; padding: 9px 12px; border: 1px solid var(--border); border-radius: var(--radius); font-family: var(--mono); font-size: 0.82rem; background: var(--surface); color: var(--ink); margin-bottom: 14px; outline: none; transition: border-color 0.15s; }
+  .modal select:focus { border-color: var(--accent); }
+  .modal-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 6px; }
+  .quote-footer { display: flex; align-items: flex-start; justify-content: space-between; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border); gap: 20px; flex-wrap: wrap; }
+  .footer-note { font-size: 0.78rem; color: var(--ink-light); max-width: 400px; line-height: 1.6; }
+  .footer-sum { text-align: right; }
+  .sum-row { display: flex; justify-content: space-between; gap: 48px; font-family: var(--mono); font-size: 0.8rem; color: var(--ink-light); margin-bottom: 4px; }
+  .sum-row.total { font-size: 1rem; color: var(--ink); font-weight: 500; border-top: 1px solid var(--border); padding-top: 8px; margin-top: 6px; }
+  .sum-row .amount { text-align: right; }
+  .hint-bar { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 14px; }
+  .hint { display: inline-flex; align-items: center; gap: 5px; font-family: var(--mono); font-size: 0.62rem; color: var(--ink-light); }
+  kbd { display: inline-block; padding: 1px 5px; border: 1px solid var(--border); border-radius: 3px; background: var(--surface); font-family: var(--mono); font-size: 0.6rem; }
+  @keyframes rowIn { from { opacity: 0; transform: translateX(-6px); } to { opacity: 1; transform: none; } }
+  .flash-copy { animation: flashCopy 0.4s ease; }
+  @keyframes flashCopy { 0%, 100% { background: var(--selected); } 50% { background: #ffe0d4; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="brand">
+      <h1>QuoteBuilder</h1>
+      <p>Fönsteroffert — Öppen offert</p>
+    </div>
+    <div class="meta">
+      <div class="quote-num">Offert #2024-0042</div>
+      <div class="date" id="today-date"></div>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <div class="toolbar-group">
+      <span class="toolbar-label">Välj</span>
+      <button class="btn" onclick="selectAll()">Alla</button>
+      <button class="btn" onclick="selectNone()">Ingen</button>
+      <button class="btn" onclick="invertSelection()">Invertera</button>
+    </div>
+    <div class="toolbar-divider"></div>
+    <div class="toolbar-group">
+      <span class="toolbar-label">Flytta</span>
+      <button class="btn" id="btn-move-up" onclick="moveSelected(-1)" disabled>▲ Upp</button>
+      <button class="btn" id="btn-move-down" onclick="moveSelected(1)" disabled>▼ Ner</button>
+      <button class="btn" id="btn-move-to" onclick="openMoveModal()" disabled>→ Till rad...</button>
+    </div>
+    <div class="toolbar-divider"></div>
+    <div class="toolbar-group">
+      <span class="toolbar-label">Rader</span>
+      <button class="btn green" id="btn-copy" onclick="copySelected()" disabled>⎘ Kopiera</button>
+      <button class="btn accent" id="btn-delete" onclick="deleteSelected()" disabled>✕ Ta bort</button>
+    </div>
+  </div>
+
+  <div class="selection-bar hidden" id="sel-bar">
+    <span class="sel-count" id="sel-count-text"></span>
+    <span>rad(er) markerade</span>
+    <div class="sel-actions">
+      <button class="btn" onclick="moveSelected(-1)">▲</button>
+      <button class="btn" onclick="moveSelected(1)">▼</button>
+      <button class="btn green" onclick="copySelected()">⎘ Kopiera</button>
+      <button class="btn accent" onclick="deleteSelected()">✕ Ta bort</button>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table class="quote-table">
+      <thead>
+        <tr>
+          <th class="center">#</th>
+          <th class="center">✓</th>
+          <th>Artikelnr</th>
+          <th>Benämning</th>
+          <th>Mått (B×H mm)</th>
+          <th>Material</th>
+          <th class="center">Antal</th>
+          <th style="text-align:right">À-pris</th>
+          <th style="text-align:right">Summa</th>
+        </tr>
+      </thead>
+      <tbody id="quote-body"></tbody>
+    </table>
+  </div>
+
+  <div class="hint-bar">
+    <span class="hint"><kbd>Klick</kbd> Markera rad</span>
+    <span class="hint"><kbd>Shift</kbd>+<kbd>Klick</kbd> Intervall</span>
+    <span class="hint"><kbd>Ctrl</kbd>+<kbd>Klick</kbd> Flera</span>
+    <span class="hint"><kbd>Ctrl</kbd>+<kbd>A</kbd> Alla</span>
+    <span class="hint"><kbd>↑↓</kbd> Flytta</span>
+    <span class="hint"><kbd>Del</kbd> Ta bort</span>
+  </div>
+
+  <div class="quote-footer">
+    <p class="footer-note">Priser exkl. moms. Offerten är giltig i 30 dagar.<br>Installation och frakt tillkommer enligt separat avtal.</p>
+    <div class="footer-sum" id="footer-sum"></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="move-modal">
+  <div class="modal">
+    <h3>Flytta till position</h3>
+    <p>Ange vilken rad de markerade raderna ska placeras efter, eller välj "Överst" för att placera dem först.</p>
+    <label>Placera efter rad nr</label>
+    <select id="move-target-select"></select>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeMoveModal()">Avbryt</button>
+      <button class="btn accent" onclick="executeMoveModal()">Flytta</button>
+    </div>
+  </div>
+</div>
+
+<script>
+let uid = 100;
+const newId = () => ++uid;
+
+const WINDOWS = [
+  { id: newId(), article: 'FX-200', name: 'Sidohängt 1-luft',   sub: 'Trä/Alu, 3-glas', w: 600,  h: 1200, mat: 'wood', qty: 2, price: 4850 },
+  { id: newId(), article: 'FX-201', name: 'Fast karm',           sub: 'Trä/Alu, 3-glas', w: 800,  h: 600,  mat: 'wood', qty: 4, price: 2200 },
+  { id: newId(), article: 'AX-110', name: 'Skjutparti 2-del',   sub: 'Aluminium, 2-glas',w: 2400, h: 2100, mat: 'alu',  qty: 1, price: 18900 },
+  { id: newId(), article: 'FX-305', name: 'Toppsvängt 1-luft',  sub: 'Trä/Alu, 3-glas', w: 900,  h: 1400, mat: 'wood', qty: 3, price: 5600 },
+  { id: newId(), article: 'PX-050', name: 'Kip/vrid 1-luft',    sub: 'PVC, 3-glas',      w: 600,  h: 900,  mat: 'pvc',  qty: 2, price: 3100 },
+  { id: newId(), article: 'AX-220', name: 'Hörnsommar',         sub: 'Aluminium, 2-glas',w: 1800, h: 2200, mat: 'alu',  qty: 2, price: 24500 },
+  { id: newId(), article: 'FX-411', name: 'Rundbåge fast',      sub: 'Trä/Alu, 3-glas', w: 700,  h: 1000, mat: 'wood', qty: 1, price: 6800 },
+  { id: newId(), article: 'PX-120', name: 'Balkongdörr 1-luft', sub: 'PVC, 2-glas',      w: 900,  h: 2100, mat: 'pvc',  qty: 2, price: 5900 },
+  { id: newId(), article: 'FX-600', name: 'Dubbeldörr 2-luft',  sub: 'Trä/Alu, 3-glas', w: 1600, h: 2200, mat: 'wood', qty: 1, price: 19200 },
+  { id: newId(), article: 'AX-300', name: 'Takfönster fast',    sub: 'Aluminium, 3-glas',w: 1000, h: 1400, mat: 'alu',  qty: 3, price: 8400 },
+];
+
+let rows = WINDOWS.map(w => ({ ...w }));
+let selected = new Set();
+let lastClickedIdx = null;
+
+function fmt(n) { return n.toLocaleString('sv-SE') + ' kr'; }
+
+function matBadge(mat) {
+  const map = { wood: ['badge-wood','Trä/Alu'], alu: ['badge-alu','Aluminium'], pvc: ['badge-pvc','PVC'] };
+  const [cls, label] = map[mat] || ['', mat];
+  return `<span class="badge ${cls}">${label}</span>`;
+}
+
+function render() {
+  const tbody = document.getElementById('quote-body');
+  tbody.innerHTML = '';
+  rows.forEach((row, idx) => {
+    const tr = document.createElement('tr');
+    tr.dataset.idx = idx;
+    if (selected.has(row.id)) tr.classList.add('selected');
+    tr.innerHTML = `
+      <td class="td-num">${idx + 1}</td>
+      <td class="td-cb"><input type="checkbox" ${selected.has(row.id) ? 'checked' : ''} onclick="toggleCheck(event, ${idx})" /></td>
+      <td class="td-article">${row.article}</td>
+      <td class="td-desc"><div class="window-name">${row.name}</div><div class="window-sub">${row.sub}</div></td>
+      <td class="td-dim">${row.w} × ${row.h}</td>
+      <td>${matBadge(row.mat)}</td>
+      <td class="td-qty">${row.qty}</td>
+      <td class="td-price">${fmt(row.price)}</td>
+      <td class="td-total">${fmt(row.price * row.qty)}</td>
+    `;
+    tr.addEventListener('click', e => { if (e.target.type === 'checkbox') return; rowClick(e, idx, row.id); });
+    tbody.appendChild(tr);
+  });
+  updateToolbar(); updateSelBar(); updateFooter();
+}
+
+function updateFooter() {
+  const subtotal = rows.reduce((s, r) => s + r.price * r.qty, 0);
+  const vat = Math.round(subtotal * 0.25);
+  const total = subtotal + vat;
+  document.getElementById('footer-sum').innerHTML = `
+    <div class="sum-row"><span>Nettosumma</span><span class="amount">${fmt(subtotal)}</span></div>
+    <div class="sum-row"><span>Moms 25 %</span><span class="amount">${fmt(vat)}</span></div>
+    <div class="sum-row total"><span>Totalt inkl. moms</span><span class="amount">${fmt(total)}</span></div>
+  `;
+}
+
+function updateToolbar() {
+  const has = selected.size > 0;
+  ['btn-move-up','btn-move-down','btn-move-to','btn-copy','btn-delete'].forEach(id => {
+    document.getElementById(id).disabled = !has;
+  });
+}
+
+function updateSelBar() {
+  const bar = document.getElementById('sel-bar');
+  if (selected.size === 0) { bar.classList.add('hidden'); return; }
+  bar.classList.remove('hidden');
+  document.getElementById('sel-count-text').textContent = selected.size;
+}
+
+function rowClick(e, idx, id) {
+  if (e.ctrlKey || e.metaKey) {
+    if (selected.has(id)) selected.delete(id); else selected.add(id);
+    lastClickedIdx = idx;
+  } else if (e.shiftKey && lastClickedIdx !== null) {
+    const lo = Math.min(lastClickedIdx, idx), hi = Math.max(lastClickedIdx, idx);
+    for (let i = lo; i <= hi; i++) selected.add(rows[i].id);
+  } else {
+    if (selected.size === 1 && selected.has(id)) { selected.clear(); lastClickedIdx = null; }
+    else { selected.clear(); selected.add(id); lastClickedIdx = idx; }
+  }
+  render();
+}
+
+function toggleCheck(e, idx) {
+  e.stopPropagation();
+  const id = rows[idx].id;
+  if (e.target.checked) selected.add(id); else selected.delete(id);
+  lastClickedIdx = idx; render();
+}
+
+function selectAll() { rows.forEach(r => selected.add(r.id)); render(); }
+function selectNone() { selected.clear(); render(); }
+function invertSelection() { rows.forEach(r => { if (selected.has(r.id)) selected.delete(r.id); else selected.add(r.id); }); render(); }
+
+function moveSelected(dir) {
+  if (selected.size === 0) return;
+  const selIds = new Set(selected);
+  const selRows = rows.filter(r => selIds.has(r.id));
+  const rest = rows.filter(r => !selIds.has(r.id));
+  const indices = rows.map((r, i) => selIds.has(r.id) ? i : -1).filter(i => i >= 0);
+  if (dir === -1) {
+    if (indices[0] === 0) return;
+    const insertAt = Math.max(0, indices[0] - 1);
+    const newRows = [...rest]; newRows.splice(insertAt, 0, ...selRows); rows = newRows;
+  } else {
+    if (indices[indices.length - 1] === rows.length - 1) return;
+    const insertAfter = indices[indices.length - 1] + 1;
+    const restInsert = rows.slice(0, insertAfter + 1).filter(r => !selIds.has(r.id)).length;
+    const newRows = [...rest]; newRows.splice(restInsert, 0, ...selRows); rows = newRows;
+  }
+  render();
+}
+
+function openMoveModal() {
+  if (selected.size === 0) return;
+  const selIds = new Set(selected);
+  const sel = document.getElementById('move-target-select');
+  sel.innerHTML = '<option value="-1">Överst (position 1)</option>';
+  rows.forEach((r, i) => {
+    if (!selIds.has(r.id)) {
+      const opt = document.createElement('option');
+      opt.value = i; opt.textContent = `Efter rad ${i + 1} — ${r.name}`; sel.appendChild(opt);
+    }
+  });
+  document.getElementById('move-modal').classList.add('open');
+}
+
+function closeMoveModal() { document.getElementById('move-modal').classList.remove('open'); }
+
+function executeMoveModal() {
+  const targetIdx = parseInt(document.getElementById('move-target-select').value);
+  const selIds = new Set(selected);
+  const selRows = rows.filter(r => selIds.has(r.id));
+  const rest = rows.filter(r => !selIds.has(r.id));
+  let insertAt;
+  if (targetIdx === -1) { insertAt = 0; }
+  else { const targetId = rows[targetIdx].id; insertAt = rest.findIndex(r => r.id === targetId) + 1; }
+  rest.splice(insertAt, 0, ...selRows); rows = rest;
+  closeMoveModal(); render();
+}
+
+function copySelected() {
+  if (selected.size === 0) return;
+  const selIds = new Set(selected);
+  let lastSelIdx = -1;
+  rows.forEach((r, i) => { if (selIds.has(r.id)) lastSelIdx = i; });
+  const toCopy = rows.filter(r => selIds.has(r.id));
+  const newCopies = toCopy.map(r => ({ ...r, id: newId(), article: r.article + '*' }));
+  const newRows = [...rows]; newRows.splice(lastSelIdx + 1, 0, ...newCopies); rows = newRows;
+  selected.clear(); newCopies.forEach(r => selected.add(r.id)); render();
+  setTimeout(() => {
+    document.querySelectorAll('tr.selected').forEach(tr => {
+      tr.classList.add('flash-copy');
+      setTimeout(() => tr.classList.remove('flash-copy'), 400);
+    });
+  }, 50);
+}
+
+function deleteSelected() {
+  if (selected.size === 0) return;
+  const selIds = new Set(selected);
+  rows = rows.filter(r => !selIds.has(r.id));
+  selected.clear(); render();
+}
+
+document.addEventListener('keydown', e => {
+  if (document.getElementById('move-modal').classList.contains('open')) { if (e.key === 'Escape') closeMoveModal(); return; }
+  if (e.key === 'ArrowUp' && selected.size > 0) { e.preventDefault(); moveSelected(-1); }
+  if (e.key === 'ArrowDown' && selected.size > 0) { e.preventDefault(); moveSelected(1); }
+  if ((e.key === 'Delete' || e.key === 'Backspace') && selected.size > 0 && document.activeElement.tagName !== 'INPUT') { e.preventDefault(); deleteSelected(); }
+  if (e.ctrlKey && e.key === 'a') { e.preventDefault(); selectAll(); }
+  if (e.ctrlKey && e.key === 'd') { e.preventDefault(); copySelected(); }
+});
+
+document.getElementById('today-date').textContent = new Date().toLocaleDateString('sv-SE', { year: 'numeric', month: 'long', day: 'numeric' });
+render();
+</script>
+</body>
+</html>
