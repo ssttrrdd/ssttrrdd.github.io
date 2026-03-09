@@ -377,9 +377,9 @@
           <th class="center" style="width:32px">#</th>
           <th class="center" style="width:36px">✓</th>
           <th>Artikelnr</th>
-          <th>Benämning</th>
-          <th>Mått (B×H mm)</th>
-          <th>Material</th>
+          <th>Littera</th>
+          <th>Karmyttermått (B × H mm)</th>
+          <th>Info</th>
           <th class="center">Antal</th>
           <th class="right">À-pris</th>
           <th class="right">Summa</th>
@@ -431,16 +431,16 @@ let uid = 100;
 const newId = () => ++uid;
 
 const WINDOWS = [
-  { id: newId(), article: 'FX-200', name: 'Sidohängt 1-luft',    sub: 'Trä/Alu, 3-glas', w: 600,  h: 1200, mat: 'wood', qty: 2, price: 4850 },
-  { id: newId(), article: 'FX-201', name: 'Fast karm',           sub: 'Trä/Alu, 3-glas', w: 800,  h: 600,  mat: 'wood', qty: 4, price: 2200 },
-  { id: newId(), article: 'AX-110', name: 'Skjutparti 2-del',   sub: 'Aluminium, 2-glas',w: 2400, h: 2100, mat: 'alu',  qty: 1, price: 18900 },
-  { id: newId(), article: 'FX-305', name: 'Toppsvängt 1-luft',  sub: 'Trä/Alu, 3-glas', w: 900,  h: 1400, mat: 'wood', qty: 3, price: 5600 },
-  { id: newId(), article: 'PX-050', name: 'Kip/vrid 1-luft',    sub: 'PVC, 3-glas',      w: 600,  h: 900,  mat: 'pvc',  qty: 2, price: 3100 },
-  { id: newId(), article: 'AX-220', name: 'Hörnsommar',         sub: 'Aluminium, 2-glas',w: 1800, h: 2200, mat: 'alu',  qty: 2, price: 24500 },
-  { id: newId(), article: 'FX-411', name: 'Rundbåge fast',      sub: 'Trä/Alu, 3-glas', w: 700,  h: 1000, mat: 'wood', qty: 1, price: 6800 },
-  { id: newId(), article: 'PX-120', name: 'Balkongdörr 1-luft', sub: 'PVC, 2-glas',      w: 900,  h: 2100, mat: 'pvc',  qty: 2, price: 5900 },
-  { id: newId(), article: 'FX-600', name: 'Dubbeldörr 2-luft',  sub: 'Trä/Alu, 3-glas', w: 1600, h: 2200, mat: 'wood', qty: 1, price: 19200 },
-  { id: newId(), article: 'AX-300', name: 'Takfönster fast',    sub: 'Aluminium, 3-glas',w: 1000, h: 1400, mat: 'alu',  qty: 3, price: 8400 },
+  { id: newId(), article: 'FX-200', name: '"Label"',    sub: 'Trä/Alu, 3-glas', w: 600,  h: 1200, mat: 'wood', qty: 2, price: 4850 },
+  { id: newId(), article: 'FX-201', name: 'D10:1',           sub: 'Trä/Alu, 3-glas', w: 800,  h: 600,  mat: 'wood', qty: 4, price: 2200 },
+  { id: newId(), article: 'AX-110', name: 'D10:2',   sub: 'Aluminium, 2-glas',w: 2400, h: 2100, mat: 'alu',  qty: 1, price: 18900 },
+  { id: newId(), article: 'FX-305', name: 'D10:3',  sub: 'Trä/Alu, 3-glas', w: 900,  h: 1400, mat: 'wood', qty: 3, price: 5600 },
+  { id: newId(), article: 'PX-050', name: 'D10:4',    sub: 'PVC, 3-glas',      w: 600,  h: 900,  mat: 'pvc',  qty: 2, price: 3100 },
+  { id: newId(), article: 'AX-220', name: 'Test 1',         sub: 'Aluminium, 2-glas',w: 1800, h: 2200, mat: 'alu',  qty: 2, price: 24500 },
+  { id: newId(), article: 'FX-411', name: 'Test 2',      sub: 'Trä/Alu, 3-glas', w: 700,  h: 1000, mat: 'wood', qty: 1, price: 6800 },
+  { id: newId(), article: 'PX-120', name: 'SD10:1', sub: 'PVC, 2-glas',      w: 900,  h: 2100, mat: 'pvc',  qty: 2, price: 5900 },
+  { id: newId(), article: 'FX-600', name: 'SD10:2',  sub: 'Trä/Alu, 3-glas', w: 1600, h: 2200, mat: 'wood', qty: 1, price: 19200 },
+  { id: newId(), article: 'AX-300', name: 'SD11:1',    sub: 'Aluminium, 3-glas',w: 1000, h: 1400, mat: 'alu',  qty: 3, price: 8400 },
 ];
 
 let rows = WINDOWS.map(w => ({ ...w }));
