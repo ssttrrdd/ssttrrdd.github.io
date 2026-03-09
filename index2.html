@@ -364,22 +364,6 @@
 <!-- MAIN -->
 <div class="main">
 
-  <!-- TOOLBAR STRIP -->
-  <div class="toolbar-strip">
-    <span class="ts-label">Välj:</span>
-    <button class="ts-btn" onclick="selectAll()">Alla</button>
-    <button class="ts-btn" onclick="selectNone()">Ingen</button>
-    <button class="ts-btn" onclick="invertSelection()">Invertera</button>
-    <div class="ts-sep"></div>
-    <span class="ts-label">Flytta:</span>
-    <button class="ts-btn" id="ts-up" onclick="moveSelected(-1)" disabled>▲ Upp</button>
-    <button class="ts-btn" id="ts-down" onclick="moveSelected(1)" disabled>▼ Ner</button>
-    <button class="ts-btn" id="ts-moveto" onclick="openMoveModal()" disabled>→ Till rad…</button>
-    <div class="ts-sep"></div>
-    <button class="ts-btn" id="ts-copy" onclick="copySelected()" disabled style="color:#388E3C;border-color:#a5d6a7">⎘ Kopiera</button>
-    <button class="ts-btn" id="ts-delete" onclick="deleteSelected()" disabled style="color:#c62828;border-color:#ef9a9a">✕ Ta bort</button>
-  </div>
-
   <!-- SELECTION INFO -->
   <div class="sel-info hidden" id="sel-bar">
     <strong id="sel-count-text">0</strong> rad(er) markerade
@@ -447,16 +431,16 @@ let uid = 100;
 const newId = () => ++uid;
 
 const WINDOWS = [
-  { id: newId(), article: 'FX-200', name: '"Label"',    sub: 'Trä/Alu, 3-glas', w: 600,  h: 1200, mat: 'wood', qty: 2, price: 4850 },
-  { id: newId(), article: 'FX-201', name: 'D10:1v karm',           sub: 'Trä/Alu, 3-glas', w: 800,  h: 600,  mat: 'wood', qty: 4, price: 2200 },
-  { id: newId(), article: 'AX-110', name: 'D10:1h',   sub: 'Aluminium, 2-glas',w: 2400, h: 2100, mat: 'alu',  qty: 1, price: 18900 },
-  { id: newId(), article: 'FX-305', name: 'D10:2h',  sub: 'Trä/Alu, 3-glas', w: 900,  h: 1400, mat: 'wood', qty: 3, price: 5600 },
-  { id: newId(), article: 'PX-050', name: 'D10:3v',    sub: 'PVC, 3-glas',      w: 600,  h: 900,  mat: 'pvc',  qty: 2, price: 3100 },
-  { id: newId(), article: 'AX-220', name: 'D11:1v',         sub: 'Aluminium, 2-glas',w: 1800, h: 2200, mat: 'alu',  qty: 2, price: 24500 },
-  { id: newId(), article: 'FX-411', name: 'D12:1v',      sub: 'Trä/Alu, 3-glas', w: 700,  h: 1000, mat: 'wood', qty: 1, price: 6800 },
-  { id: newId(), article: 'PX-120', name: 'D12:2v', sub: 'PVC, 2-glas',      w: 900,  h: 2100, mat: 'pvc',  qty: 2, price: 5900 },
-  { id: newId(), article: 'FX-600', name: 'D12:3h',  sub: 'Trä/Alu, 3-glas', w: 1600, h: 2200, mat: 'wood', qty: 1, price: 19200 },
-  { id: newId(), article: 'AX-300', name: 'D13:1v',    sub: 'Aluminium, 3-glas',w: 1000, h: 1400, mat: 'alu',  qty: 3, price: 8400 },
+  { id: newId(), article: 'FX-200', name: 'Sidohängt 1-luft',    sub: 'Trä/Alu, 3-glas', w: 600,  h: 1200, mat: 'wood', qty: 2, price: 4850 },
+  { id: newId(), article: 'FX-201', name: 'Fast karm',           sub: 'Trä/Alu, 3-glas', w: 800,  h: 600,  mat: 'wood', qty: 4, price: 2200 },
+  { id: newId(), article: 'AX-110', name: 'Skjutparti 2-del',   sub: 'Aluminium, 2-glas',w: 2400, h: 2100, mat: 'alu',  qty: 1, price: 18900 },
+  { id: newId(), article: 'FX-305', name: 'Toppsvängt 1-luft',  sub: 'Trä/Alu, 3-glas', w: 900,  h: 1400, mat: 'wood', qty: 3, price: 5600 },
+  { id: newId(), article: 'PX-050', name: 'Kip/vrid 1-luft',    sub: 'PVC, 3-glas',      w: 600,  h: 900,  mat: 'pvc',  qty: 2, price: 3100 },
+  { id: newId(), article: 'AX-220', name: 'Hörnsommar',         sub: 'Aluminium, 2-glas',w: 1800, h: 2200, mat: 'alu',  qty: 2, price: 24500 },
+  { id: newId(), article: 'FX-411', name: 'Rundbåge fast',      sub: 'Trä/Alu, 3-glas', w: 700,  h: 1000, mat: 'wood', qty: 1, price: 6800 },
+  { id: newId(), article: 'PX-120', name: 'Balkongdörr 1-luft', sub: 'PVC, 2-glas',      w: 900,  h: 2100, mat: 'pvc',  qty: 2, price: 5900 },
+  { id: newId(), article: 'FX-600', name: 'Dubbeldörr 2-luft',  sub: 'Trä/Alu, 3-glas', w: 1600, h: 2200, mat: 'wood', qty: 1, price: 19200 },
+  { id: newId(), article: 'AX-300', name: 'Takfönster fast',    sub: 'Aluminium, 3-glas',w: 1000, h: 1400, mat: 'alu',  qty: 3, price: 8400 },
 ];
 
 let rows = WINDOWS.map(w => ({ ...w }));
@@ -507,8 +491,7 @@ function updateFooter() {
 
 function updateToolbar() {
   const has = selected.size > 0;
-  ['sb-copy','sb-delete','sb-up','sb-down','sb-moveto',
-   'ts-up','ts-down','ts-moveto','ts-copy','ts-delete'].forEach(id => {
+  ['sb-copy','sb-delete','sb-up','sb-down','sb-moveto'].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.disabled = !has;
   });
